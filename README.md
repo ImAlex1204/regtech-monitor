@@ -76,6 +76,14 @@ streamlit run app.py
 
 The dashboard opens automatically at `http://localhost:8501`.
 
+## Automation (optional)
+
+A GitHub Actions workflow (`.github/workflows/daily-pipeline.yml`) runs `pipeline.py` daily at 07:00 UTC and commits any newly-classified announcements straight back to `data/announcements.db`, so the dashboard stays current without anyone running it by hand. To enable it on your own fork:
+
+1. In the repo's **Settings → Secrets and variables → Actions**, add a repository secret named `GEMINI_API_KEY` with your key.
+2. In **Settings → Actions → General → Workflow permissions**, select "Read and write permissions" (the workflow needs to push its own commits).
+3. It also runs on-demand from the **Actions** tab (`workflow_dispatch`) if you don't want to wait for the schedule.
+
 ## Project structure
 
 ```
@@ -88,6 +96,8 @@ regtech-monitor/
 │   └── announcements.db
 ├── docs/
 │   └── dashboard-screenshot.png
+├── .github/workflows/
+│   └── daily-pipeline.yml  # optional: scheduled auto-run
 └── requirements.txt
 ```
 
