@@ -22,9 +22,13 @@ FCA RSS feed  ->  fetch article text  ->  LLM classification  ->  SQLite  ->  St
 ```
 
 1. **Fetch** — pull the FCA's public RSS feed, then fetch and parse the full text of each linked announcement.
-2. **Classify** — send the announcement to an LLM, which returns a structured JSON verdict: a 3-sentence summary, the affected business area, a risk level (high/medium/low), and a deadline if one is mentioned.
+2. **Classify** — send the announcement to an LLM, which returns a structured JSON verdict: a 3-sentence summary, a business area picked from a fixed 8-category taxonomy, a risk level (high/medium/low, against an explicit rubric — see below), and a deadline if one is mentioned.
 3. **Store** — persist to SQLite, keyed by URL, so re-running the pipeline never re-processes (or re-pays for) an announcement it's already seen.
-4. **Browse** — a Streamlit dashboard reads the database and lets you filter by risk level and business area. The interface chrome (labels, headers, metrics) toggles between Chinese and English; the LLM-generated summaries and business-area tags themselves stay in the language they were classified in (Chinese).
+4. **Browse** — a Streamlit dashboard reads the database and lets you filter by risk level and business area. The main table stays compact (risk, business area, date, title); click a row to expand the full summary and a link to the original announcement below it. The interface chrome (labels, headers, metrics) toggles between Chinese and English; the LLM-generated summaries and business-area tags themselves stay in the language they were classified in (Chinese).
+
+### Design note: a free-text classification is not a filter
+
+The first version let the LLM write `business_area` as free text. It technically worked, but across 21 real announcements it produced 20 nearly-unique values — the sidebar filter existed but filtered nothing, because almost every row was its own category. The fix was to give the LLM a fixed list of 8 categories (consumer protection, AML/financial crime, market conduct, prudential/capital, governance & accountability, capital markets & listings, transaction reporting & infrastructure, regulatory policy & ops) and instruct it to pick exactly one — no inventing, no combining. Re-classifying the same 21 announcements against the new prompt dropped that to 7 categories, meaningfully reused. `risk_level` got the same treatment: an explicit rubric (does it carry a deadline or a direct compliance obligation → high; industry trend/non-binding guidance → medium; personnel/organizational news → low) replaces "high/medium/low, use your judgment." See `PROJECT_SPEC.md` for the full before/after distribution.
 
 ## Tech stack
 
@@ -93,6 +97,7 @@ regtech-monitor/
 ├── fetch.py          # RSS + article text extraction
 ├── llm_client.py      # LLM classification, provider-agnostic
 ├── pipeline.py        # batch fetch -> classify -> store, with dedup + error handling
+├── reclassify.py       # one-off: re-run classification on existing rows after a prompt change
 ├── app.py              # Streamlit dashboard
 ├── data/
 │   └── announcements.db

@@ -21,11 +21,15 @@ TEXT = {
         "area_filter": "受影響業務範圍",
         "subheader": "公告列表（{n} 筆）",
         "lang_toggle": "English",
+        "select_hint": "點選上方任一列，查看完整摘要與原文連結",
+        "detail_deadline": "期限",
+        "detail_deadline_none": "無",
+        "detail_link": "查看原文公告",
         "columns": {
             "published_date": "發布日期",
             "title": "標題",
             "risk_level": "風險等級",
-            "business_area": "受影響業務範圍",
+            "business_area": "業務範圍",
             "deadline": "期限",
             "summary": "摘要",
             "url": "連結",
@@ -43,6 +47,10 @@ TEXT = {
         "area_filter": "Business area",
         "subheader": "Announcements ({n})",
         "lang_toggle": "中文",
+        "select_hint": "Select a row above to see the full summary and original link",
+        "detail_deadline": "Deadline",
+        "detail_deadline_none": "None",
+        "detail_link": "View original announcement",
         "columns": {
             "published_date": "Published",
             "title": "Title",
@@ -105,9 +113,39 @@ filtered = df[df["risk_level"].isin(selected_risk) & df["business_area"].isin(se
 
 st.subheader(t["subheader"].format(n=len(filtered)))
 
-display_df = filtered[["published_date", "title", "risk_level", "business_area", "deadline", "summary", "url"]].copy()
+# 摘要/連結不進主表格（否則會被標題擠出畫面外）。表格只留「一眼能掃過」的分類欄位，
+# 點選某一列後在下方詳細卡片顯示完整摘要與原文連結。
+grid_cols = ["risk_level", "business_area", "published_date", "title", "deadline"]
+display_df = filtered[grid_cols].copy()
 if lang == "en":
     display_df["risk_level"] = display_df["risk_level"].map(lambda v: risk_display.get(v, v))
 display_df = display_df.rename(columns=t["columns"])
 
-st.dataframe(display_df, use_container_width=True, hide_index=True)
+event = st.dataframe(
+    display_df,
+    use_container_width=True,
+    hide_index=True,
+    on_select="rerun",
+    selection_mode="single-row",
+    column_config={
+        t["columns"]["risk_level"]: st.column_config.TextColumn(width="small"),
+        t["columns"]["business_area"]: st.column_config.TextColumn(width="medium"),
+        t["columns"]["published_date"]: st.column_config.TextColumn(width="medium"),
+        t["columns"]["title"]: st.column_config.TextColumn(width="large"),
+        t["columns"]["deadline"]: st.column_config.TextColumn(width="small"),
+    },
+)
+
+selected_rows = event.selection.rows if event and event.selection else []
+if selected_rows:
+    row = filtered.iloc[selected_rows[0]]
+    risk_label = risk_display.get(row["risk_level"], row["risk_level"])
+    deadline_label = row["deadline"] if pd.notna(row["deadline"]) else t["detail_deadline_none"]
+
+    with st.container(border=True):
+        st.markdown(f"#### {row['title']}")
+        st.caption(f"{row['published_date']}  ·  {risk_label}  ·  {row['business_area']}  ·  {t['detail_deadline']}: {deadline_label}")
+        st.write(row["summary"])
+        st.markdown(f"[{t['detail_link']} ↗]({row['url']})")
+else:
+    st.caption(t["select_hint"])

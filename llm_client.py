@@ -1,8 +1,29 @@
 """LLM 摘要分類層——上層只呼叫 summarize_announcement，不需要知道背後用哪家供應商。"""
 import os
 
+# 固定分類清單。原本讓 LLM 自由生成 business_area 導致每篇幾乎都不同分類，
+# 篩選器形同虛設；改成強制單選讓分類真的有篩選意義。
+BUSINESS_AREAS = [
+    "消費者保護與產品行銷",
+    "洗錢防制與金融犯罪",
+    "市場行為與交易誠信",
+    "審慎監管與資本要求",
+    "公司治理與高階人員問責",
+    "資本市場與上市監管",
+    "交易申報與市場基礎設施",
+    "監管政策與合規流程",
+]
+
 PROMPT_TEMPLATE = """你是RegTech合規分析助手。根據以下監管公告，回傳純JSON（不要有其他文字）：
 {{"summary": "3句話摘要", "business_area": "受影響業務範圍", "risk_level": "高/中/低", "deadline": "期限，若無則為null"}}
+
+business_area 規則：只能從下面清單中「擇一」填入，不可自創、不可合併多個、不可加註說明文字：
+{business_areas}
+
+risk_level 判斷標準：
+- 高：有明確截止日期需在期限內完成因應，或直接影響機構的合規義務（例如新規則、執法處分、罰款、禁業、涉及客戶資產安全）
+- 中：屬產業趨勢、政策方向、諮詢文件或非強制性指引，應留意但無立即行動壓力
+- 低：一般性公告、人事任命、組織消息，對外部機構無直接合規影響
 
 標題：{title}
 內文：{text}"""
@@ -10,7 +31,11 @@ PROMPT_TEMPLATE = """你是RegTech合規分析助手。根據以下監管公告�
 
 def summarize_announcement(title: str, text: str) -> dict | None:
     provider = os.getenv("LLM_PROVIDER", "gemini")
-    prompt = PROMPT_TEMPLATE.format(title=title, text=text)
+    prompt = PROMPT_TEMPLATE.format(
+        business_areas="\n".join(f"- {area}" for area in BUSINESS_AREAS),
+        title=title,
+        text=text,
+    )
     if provider == "gemini":
         return _call_gemini(prompt)
     elif provider == "anthropic":
