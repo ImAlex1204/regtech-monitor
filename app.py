@@ -2,8 +2,14 @@
 import sqlite3
 from pathlib import Path
 
+import altair as alt
 import pandas as pd
 import streamlit as st
+
+# 類別色 1（藍）/ 2（橘），取自驗證過色盲安全性的固定順序調色盤，相鄰兩色的辨識度已通過檢查。
+COLOR_TOTAL = "#2a78d6"
+COLOR_HIGH_RISK = "#eb6834"
+COLOR_BAR = "#2a78d6"
 
 DB_PATH = Path(__file__).parent / "data" / "announcements.db"
 
@@ -25,6 +31,18 @@ TEXT = {
         "detail_deadline": "期限",
         "detail_deadline_none": "無",
         "detail_link": "查看原文公告",
+        "trend_header": "趨勢與分析",
+        "chart_weekly_title": "每週公告趨勢",
+        "chart_total": "公告總數",
+        "chart_high_risk": "高風險公告數",
+        "chart_week_axis": "週別",
+        "chart_area_title": "業務範圍分布",
+        "chart_area_axis": "公告數",
+        "deadline_header": "即將到期",
+        "deadline_days_left": "剩餘天數",
+        "deadline_days_unit": "天",
+        "deadline_empty": "目前沒有含明確期限、尚未到期的公告",
+        "deadline_link_col": "原文",
         "columns": {
             "published_date": "發布日期",
             "title": "標題",
@@ -51,6 +69,18 @@ TEXT = {
         "detail_deadline": "Deadline",
         "detail_deadline_none": "None",
         "detail_link": "View original announcement",
+        "trend_header": "Trends & Breakdown",
+        "chart_weekly_title": "Weekly Announcement Trend",
+        "chart_total": "Total",
+        "chart_high_risk": "High-risk",
+        "chart_week_axis": "Week",
+        "chart_area_title": "Announcements by Business Area",
+        "chart_area_axis": "Announcements",
+        "deadline_header": "Upcoming Deadlines",
+        "deadline_days_left": "Days left",
+        "deadline_days_unit": "d",
+        "deadline_empty": "No upcoming announcements with a stated deadline",
+        "deadline_link_col": "Source",
         "columns": {
             "published_date": "Published",
             "title": "Title",
@@ -100,6 +130,8 @@ else:
 
 lang = st.session_state.lang
 t = TEXT[lang]
+risk_display = RISK_LEVEL_DISPLAY.get(lang, {})
+area_display = BUSINESS_AREA_DISPLAY.get(lang, {})
 
 df = load_data()
 
@@ -111,12 +143,99 @@ col1.metric(t["metric_total"], len(df))
 col2.metric(t["metric_high_risk"], int((df["risk_level"] == "高").sum()))
 col3.metric(t["metric_deadline"], int(df["deadline"].notna().sum()))
 
+# published_date 是 feedparser 給的人類可讀字串（例："Wednesday, August 5, 2026 - 11:32"），
+# 圖表需要真正的日期型別才能依週彙總。
+df["published_dt"] = pd.to_datetime(df["published_date"], format="%A, %B %d, %Y - %H:%M", errors="coerce")
+
+st.subheader(t["trend_header"])
+
+weekly = (
+    df.dropna(subset=["published_dt"])
+    .set_index("published_dt")
+    .resample("W")
+    .agg(total=("url", "count"), high_risk=("risk_level", lambda s: (s == "高").sum()))
+    .reset_index()
+)
+weekly_long = weekly.melt(
+    id_vars="published_dt", value_vars=["total", "high_risk"],
+    var_name="series", value_name="count",
+)
+series_label = {"total": t["chart_total"], "high_risk": t["chart_high_risk"]}
+weekly_long["series"] = weekly_long["series"].map(series_label)
+
+trend_chart = (
+    alt.Chart(weekly_long)
+    .mark_line(point=True, strokeWidth=2)
+    .encode(
+        x=alt.X("published_dt:T", title=None, axis=alt.Axis(format="%b %d")),
+        y=alt.Y("count:Q", title=None),
+        color=alt.Color(
+            "series:N",
+            scale=alt.Scale(domain=[t["chart_total"], t["chart_high_risk"]], range=[COLOR_TOTAL, COLOR_HIGH_RISK]),
+            legend=alt.Legend(title=None),
+        ),
+        tooltip=[alt.Tooltip("published_dt:T", title=t["chart_week_axis"]), "series:N", "count:Q"],
+    )
+    .properties(height=280, title=t["chart_weekly_title"])
+)
+st.altair_chart(trend_chart, use_container_width=True)
+
+area_counts = df["business_area"].value_counts().reset_index()
+area_counts.columns = ["business_area", "count"]
+if lang == "en":
+    area_counts["business_area"] = area_counts["business_area"].map(lambda v: area_display.get(v, v))
+
+area_chart = (
+    alt.Chart(area_counts)
+    .mark_bar(color=COLOR_BAR, cornerRadiusTopRight=3, cornerRadiusBottomRight=3)
+    .encode(
+        x=alt.X("count:Q", title=t["chart_area_axis"]),
+        y=alt.Y("business_area:N", sort="-x", title=None),
+        tooltip=["business_area:N", "count:Q"],
+    )
+    .properties(height=280, title=t["chart_area_title"])
+)
+st.altair_chart(area_chart, use_container_width=True)
+
+st.subheader(t["deadline_header"])
+df["deadline_dt"] = pd.to_datetime(df["deadline"], errors="coerce")
+today = pd.Timestamp.now().normalize()
+upcoming = df[df["deadline_dt"].notna() & (df["deadline_dt"] >= today)].sort_values("deadline_dt").copy()
+
+if upcoming.empty:
+    st.caption(t["deadline_empty"])
+else:
+    upcoming[t["deadline_days_left"]] = (upcoming["deadline_dt"] - today).dt.days.map(lambda d: f"{d} {t['deadline_days_unit']}")
+    upcoming["_risk_display"] = upcoming["risk_level"].map(lambda v: risk_display.get(v, v)) if lang == "en" else upcoming["risk_level"]
+    upcoming["_area_display"] = upcoming["business_area"].map(lambda v: area_display.get(v, v)) if lang == "en" else upcoming["business_area"]
+
+    upcoming_display = upcoming[["deadline", t["deadline_days_left"], "_risk_display", "_area_display", "title", "url"]].rename(
+        columns={
+            "deadline": t["columns"]["deadline"],
+            "_risk_display": t["columns"]["risk_level"],
+            "_area_display": t["columns"]["business_area"],
+            "title": t["columns"]["title"],
+            "url": t["deadline_link_col"],
+        }
+    )
+    st.dataframe(
+        upcoming_display,
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            t["columns"]["deadline"]: st.column_config.TextColumn(width="small"),
+            t["deadline_days_left"]: st.column_config.TextColumn(width="small"),
+            t["columns"]["risk_level"]: st.column_config.TextColumn(width="small"),
+            t["columns"]["business_area"]: st.column_config.TextColumn(width="medium"),
+            t["columns"]["title"]: st.column_config.TextColumn(width="large"),
+            t["deadline_link_col"]: st.column_config.LinkColumn(width="small", display_text="↗"),
+        },
+    )
+
 st.sidebar.header(t["sidebar_header"])
 risk_options = sorted(df["risk_level"].dropna().unique())
 area_options = sorted(df["business_area"].dropna().unique())
 
-risk_display = RISK_LEVEL_DISPLAY.get(lang, {})
-area_display = BUSINESS_AREA_DISPLAY.get(lang, {})
 selected_risk = st.sidebar.multiselect(
     t["risk_filter"], risk_options, default=risk_options,
     format_func=lambda v: risk_display.get(v, v),

@@ -24,7 +24,7 @@ FCA RSS feed  ->  fetch article text  ->  LLM classification  ->  SQLite  ->  St
 1. **Fetch** — pull the FCA's public RSS feed, then fetch and parse the full text of each linked announcement.
 2. **Classify** — send the announcement to an LLM, which returns a structured JSON verdict: a 3-sentence summary, a business area picked from a fixed 8-category taxonomy, a risk level (high/medium/low, against an explicit rubric — see below), and a deadline if one is mentioned.
 3. **Store** — persist to SQLite, keyed by URL, so re-running the pipeline never re-processes (or re-pays for) an announcement it's already seen.
-4. **Browse** — a Streamlit dashboard reads the database and lets you filter by risk level and business area. The main table stays compact (risk, business area, date, title); click a row to expand the full summary and a link to the original announcement below it. The interface chrome (labels, headers, metrics) toggles between Chinese and English; the LLM-generated summaries and business-area tags themselves stay in the language they were classified in (Chinese).
+4. **Browse** — a Streamlit dashboard opens with three KPI tiles, a weekly trend line (total vs. high-risk announcements), a business-area breakdown bar chart, and an upcoming-deadlines table (soonest first, with a days-remaining column and a direct link to each original announcement). Below that, the full announcement list stays compact (risk, business area, date, title); click a row to expand its full summary and source link. The interface chrome (labels, headers, metrics, chart titles) toggles between Chinese and English; the LLM-generated summaries themselves stay in the language they were classified in (Chinese).
 
 ### Design note: a free-text classification is not a filter
 
