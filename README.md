@@ -2,6 +2,8 @@
 
 A small RegTech tool that watches the UK Financial Conduct Authority (FCA)'s public announcement feed, uses an LLM to classify each announcement by business impact and risk level, and surfaces the result in a filterable dashboard.
 
+**[Live demo →](https://regtech-monitor-hbnkvuy6syr7hissuh5vm3.streamlit.app)** — kept current by the daily automation described below.
+
 ![Dashboard screenshot](docs/dashboard-screenshot.png)
 
 ## Why this exists
