@@ -150,6 +150,9 @@ df["published_dt"] = pd.to_datetime(df["published_date"], errors="coerce")
 df["deadline_dt"] = pd.to_datetime(df["deadline"], errors="coerce")
 # published_date 存的是機器好處理的 ISO 字串（跨來源統一格式），畫面上另外顯示人類好讀的版本。
 df["published_display"] = df["published_dt"].dt.strftime("%Y-%m-%d %H:%M").fillna(df["published_date"])
+# deadline 是 LLM 自由文字生成，偶爾不遵守「只給具體日期」的指示、混入「60 days after...」這種相對描述。
+# 顯示層防禦：只顯示能成功解析成日期的值，parse 失敗（含這種相對描述）一律當作沒有期限處理，不顯示原始亂碼文字。
+df["deadline_display"] = df["deadline_dt"].dt.strftime("%Y-%m-%d")
 
 st.title(t["title"])
 st.caption(t["caption"].format(sources="、".join(sorted(df["source"].dropna().unique())) if lang == "zh" else ", ".join(sorted(df["source"].dropna().unique()))))
@@ -225,7 +228,7 @@ st.altair_chart(area_chart, use_container_width=True)
 
 st.subheader(t["deadline_header"])
 today = pd.Timestamp.now().normalize()
-upcoming = df[df["deadline_dt"].notna() & (df["deadline_dt"] >= today)].sort_values("deadline_dt").copy()
+upcoming = df[df["deadline_dt"].notna() & (df["deadline_dt"] >= today)].sort_values(["source", "deadline_dt"]).copy()
 
 if upcoming.empty:
     st.caption(t["deadline_empty"])
@@ -234,9 +237,9 @@ else:
     upcoming["_risk_display"] = upcoming["risk_level"].map(lambda v: risk_display.get(v, v)) if lang == "en" else upcoming["risk_level"]
     upcoming["_area_display"] = upcoming["business_area"].map(lambda v: area_display.get(v, v)) if lang == "en" else upcoming["business_area"]
 
-    upcoming_display = upcoming[["deadline", t["deadline_days_left"], "source", "_risk_display", "_area_display", "title", "url"]].rename(
+    upcoming_display = upcoming[["deadline_display", t["deadline_days_left"], "source", "_risk_display", "_area_display", "title", "url"]].rename(
         columns={
-            "deadline": t["columns"]["deadline"],
+            "deadline_display": t["columns"]["deadline"],
             "source": t["columns"]["source"],
             "_risk_display": t["columns"]["risk_level"],
             "_area_display": t["columns"]["business_area"],
@@ -278,18 +281,22 @@ filtered = df[
     df["source"].isin(selected_source)
     & df["risk_level"].isin(selected_risk)
     & df["business_area"].isin(selected_area)
-]
+].sort_values(["source", "published_dt"], ascending=[True, False])
 
 st.subheader(t["subheader"].format(n=len(filtered)))
 
 # 摘要/連結不進主表格（否則會被標題擠出畫面外）。表格只留「一眼能掃過」的分類欄位，
 # 點選某一列後在下方詳細卡片顯示完整摘要與原文連結。
-grid_cols = ["source", "risk_level", "business_area", "published_display", "title", "deadline"]
+grid_cols = ["source", "risk_level", "business_area", "published_display", "title", "deadline_display"]
 display_df = filtered[grid_cols].copy()
 if lang == "en":
     display_df["risk_level"] = display_df["risk_level"].map(lambda v: risk_display.get(v, v))
     display_df["business_area"] = display_df["business_area"].map(lambda v: area_display.get(v, v))
-display_df = display_df.rename(columns={**t["columns"], "published_display": t["columns"]["published_date"]})
+display_df = display_df.rename(columns={
+    **t["columns"],
+    "published_display": t["columns"]["published_date"],
+    "deadline_display": t["columns"]["deadline"],
+})
 
 event = st.dataframe(
     display_df,
@@ -312,7 +319,7 @@ if selected_rows:
     row = filtered.iloc[selected_rows[0]]
     risk_label = risk_display.get(row["risk_level"], row["risk_level"])
     area_label = area_display.get(row["business_area"], row["business_area"])
-    deadline_label = row["deadline"] if pd.notna(row["deadline"]) else t["detail_deadline_none"]
+    deadline_label = row["deadline_display"] if pd.notna(row["deadline_display"]) else t["detail_deadline_none"]
 
     with st.container(border=True):
         st.markdown(f"#### {row['title']}")

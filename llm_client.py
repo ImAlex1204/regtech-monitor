@@ -15,9 +15,13 @@ BUSINESS_AREAS = [
 ]
 
 PROMPT_TEMPLATE = """你是RegTech合規分析助手。根據以下監管公告，回傳純JSON（不要有其他文字）：
-{{"summary": "3句話摘要", "business_area": "受影響業務範圍", "risk_level": "高/中/低", "deadline": "期限，若無則為null"}}
+{{"summary": "3句話摘要", "business_area": "受影響業務範圍", "risk_level": "高/中/低", "deadline": "YYYY-MM-DD 格式的實際日期，若無則為null"}}
 
-business_area 規則：只能從下面清單中「擇一」填入，不可自創、不可合併多個、不可加註說明文字：
+summary 規則：用英文撰寫，貼近原文語感，不要翻譯成中文（監管公告原文本身就是英文，直接摘要即可）。
+
+deadline 規則：只能填「YYYY-MM-DD」格式的具體日期，不可填相對時間描述（例如「60 days after publication」「3 months from the hearing date」）。如果原文只給了相對時間、沒有寫出可以直接換算的具體日期，一律回傳 null，不要自己去猜或計算。
+
+business_area 規則：只能從下面清單中「擇一」填入，不可自創、不可合併多個、不可加註說明文字（清單本身是中文分類名稱，照原樣輸出）：
 {business_areas}
 
 risk_level 判斷標準：
@@ -95,9 +99,9 @@ def _parse_json(raw_text: str) -> dict | None:
 if __name__ == "__main__":
     from dotenv import load_dotenv
     load_dotenv()
-    from fetch import fetch_feed_entries, fetch_article_text
+    from fetch import SOURCES, fetch_feed_entries, fetch_article_text
 
-    entries = fetch_feed_entries()
+    entries = fetch_feed_entries(SOURCES[0])
     first = entries[0]
     text = fetch_article_text(first["link"])
 
