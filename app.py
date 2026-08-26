@@ -153,6 +153,9 @@ df["published_display"] = df["published_dt"].dt.strftime("%Y-%m-%d %H:%M").filln
 # deadline 是 LLM 自由文字生成，偶爾不遵守「只給具體日期」的指示、混入「60 days after...」這種相對描述。
 # 顯示層防禦：只顯示能成功解析成日期的值，parse 失敗（含這種相對描述）一律當作沒有期限處理，不顯示原始亂碼文字。
 df["deadline_display"] = df["deadline_dt"].dt.strftime("%Y-%m-%d")
+# 主表格放摘要「預覽」（截斷），讓使用者掃過整批篩選結果時就看得到分類依據的梗概，
+# 不用每一列都點開；完整全文仍在點選展開的詳細卡片裡。
+df["summary_preview"] = df["summary"].fillna("").apply(lambda s: s if len(s) <= 90 else s[:90] + "…")
 
 st.title(t["title"])
 st.caption(t["caption"].format(sources="、".join(sorted(df["source"].dropna().unique())) if lang == "zh" else ", ".join(sorted(df["source"].dropna().unique()))))
@@ -287,7 +290,7 @@ st.subheader(t["subheader"].format(n=len(filtered)))
 
 # 摘要/連結不進主表格（否則會被標題擠出畫面外）。表格只留「一眼能掃過」的分類欄位，
 # 點選某一列後在下方詳細卡片顯示完整摘要與原文連結。
-grid_cols = ["source", "risk_level", "business_area", "published_display", "title", "deadline_display"]
+grid_cols = ["source", "risk_level", "business_area", "published_display", "title", "summary_preview", "deadline_display"]
 display_df = filtered[grid_cols].copy()
 if lang == "en":
     display_df["risk_level"] = display_df["risk_level"].map(lambda v: risk_display.get(v, v))
@@ -296,6 +299,7 @@ display_df = display_df.rename(columns={
     **t["columns"],
     "published_display": t["columns"]["published_date"],
     "deadline_display": t["columns"]["deadline"],
+    "summary_preview": t["columns"]["summary"],
 })
 
 event = st.dataframe(
@@ -309,7 +313,8 @@ event = st.dataframe(
         t["columns"]["risk_level"]: st.column_config.TextColumn(width="small"),
         t["columns"]["business_area"]: st.column_config.TextColumn(width="medium"),
         t["columns"]["published_date"]: st.column_config.TextColumn(width="medium"),
-        t["columns"]["title"]: st.column_config.TextColumn(width="large"),
+        t["columns"]["title"]: st.column_config.TextColumn(width="medium"),
+        t["columns"]["summary"]: st.column_config.TextColumn(width="large"),
         t["columns"]["deadline"]: st.column_config.TextColumn(width="small"),
     },
 )
