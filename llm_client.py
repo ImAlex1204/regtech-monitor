@@ -57,6 +57,12 @@ def _call_gemini(prompt: str, max_retries: int = 3) -> dict | None:
             if attempt == max_retries - 1:
                 raise
             time.sleep(2 ** attempt)  # 1s, 2s, 4s：伺服器暫時過載，指數退避後重試
+        except errors.ClientError as exc:
+            # 429 是免費額度的「每分鐘請求數」限流（多來源後單次批次量變大，更容易撞到）。
+            # 這是暫時性問題值得重試；其他 4xx（例如模型名稱打錯的 404）重試沒有意義，直接往上拋。
+            if exc.code != 429 or attempt == max_retries - 1:
+                raise
+            time.sleep(20)
 
 
 def _call_anthropic(prompt: str) -> dict | None:

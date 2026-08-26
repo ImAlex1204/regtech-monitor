@@ -1,6 +1,6 @@
 # RegTech Monitor
 
-A small RegTech tool that watches the UK Financial Conduct Authority (FCA)'s public announcement feed, uses an LLM to classify each announcement by business impact and risk level, and surfaces the result in a filterable dashboard.
+A small RegTech tool that watches two regulators' public announcement feeds — the UK's Financial Conduct Authority (FCA) and the US Securities and Exchange Commission (SEC) — uses an LLM to classify each announcement by business impact and risk level, and surfaces the result in a dashboard built for cross-jurisdiction comparison.
 
 **[Live demo →](https://regtech-monitor-hbnkvuy6syr7hissuh5vm3.streamlit.app)** — kept current by the daily automation described below.
 
@@ -17,14 +17,18 @@ This was built as a scoped, 4-week portfolio project — not a production compli
 ## How it works
 
 ```
-FCA RSS feed  ->  fetch article text  ->  LLM classification  ->  SQLite  ->  Streamlit dashboard
- (feedparser)      (requests + BS4)      (Gemini, swappable)     (dedup)      (filter + browse)
+FCA + SEC RSS feeds  ->  fetch article text  ->  LLM classification  ->  SQLite  ->  Streamlit dashboard
+   (feedparser)           (requests + BS4)       (Gemini, swappable)     (dedup)      (compare + browse)
 ```
 
-1. **Fetch** — pull the FCA's public RSS feed, then fetch and parse the full text of each linked announcement.
+1. **Fetch** — pull each configured regulator's public RSS feed (`fetch.SOURCES`; currently FCA and SEC), then fetch and parse the full text of each linked announcement. Every regulator's date format is normalized to ISO 8601 UTC at this stage, since RSS date formats vary wildly between sources (FCA uses a custom non-standard string; SEC uses RFC822).
 2. **Classify** — send the announcement to an LLM, which returns a structured JSON verdict: a 3-sentence summary, a business area picked from a fixed 8-category taxonomy, a risk level (high/medium/low, against an explicit rubric — see below), and a deadline if one is mentioned.
-3. **Store** — persist to SQLite, keyed by URL, so re-running the pipeline never re-processes (or re-pays for) an announcement it's already seen.
-4. **Browse** — a Streamlit dashboard opens with three KPI tiles, a weekly trend line (total vs. high-risk announcements), a business-area breakdown bar chart, and an upcoming-deadlines table (soonest first, with a days-remaining column and a direct link to each original announcement). Below that, the full announcement list stays compact (risk, business area, date, title); click a row to expand its full summary and source link. The interface chrome (labels, headers, metrics, chart titles) toggles between Chinese and English; the LLM-generated summaries themselves stay in the language they were classified in (Chinese).
+3. **Store** — persist to SQLite, keyed by URL, tagged with its source regulator, so re-running the pipeline never re-processes (or re-pays for) an announcement it's already seen.
+4. **Browse & compare** — a Streamlit dashboard opens with overall KPI tiles, then a **by-regulator breakdown**: side-by-side KPI cards, two weekly trend charts (total and high-risk announcements, one line per regulator), and a grouped bar chart of business-area composition per regulator — the actual point of tracking two jurisdictions side by side, not just two filtered lists. Below that, an upcoming-deadlines table (soonest first) and the full filterable announcement list (regulator, risk, business area, date, title); click a row to expand its full summary and source link. The interface chrome (labels, headers, metrics, chart titles) toggles between Chinese and English; the LLM-generated summaries themselves stay in the language they were classified in (Chinese).
+
+### Design note: adding a second regulator is a config entry, not a rewrite
+
+`fetch.py` doesn't hardcode "FCA" anywhere in its logic — `SOURCES` is a list of `{code, name, rss_url}` dicts, and every downstream function (`fetch_feed_entries`, `pipeline.py`'s loop, the dashboard's source filter) is written against that list rather than a single hardcoded source. This paid off immediately: the article-text extraction logic (`<main>` tag, fallback to all `<p>` tags) written for FCA's site turned out to work unmodified on SEC's site too — a generic heuristic beat a site-specific one. Adding a third regulator means adding one entry to `SOURCES`, not touching `pipeline.py`, `llm_client.py`, or the dashboard's chart logic.
 
 ### Design note: a free-text classification is not a filter
 
@@ -34,7 +38,7 @@ The first version let the LLM write `business_area` as free text. It technically
 
 | Layer | Tool |
 |---|---|
-| Data source | FCA RSS feed |
+| Data sources | FCA (UK) + SEC (US) RSS feeds — extensible via `fetch.SOURCES` |
 | Fetching | `requests`, `feedparser`, `beautifulsoup4` |
 | Classification | Gemini API (free tier), behind a provider-agnostic interface — see below |
 | Storage | SQLite (`sqlite3`, no extra dependency) |
@@ -111,7 +115,7 @@ regtech-monitor/
 ## Scope & limitations
 
 - Runs on-demand (`python3 pipeline.py`), not on a schedule. Automating this via GitHub Actions is a natural next step but wasn't part of the initial 4-week build.
-- Single data source (FCA RSS). No deduplication across sources, since there's only one.
+- Two data sources (FCA, SEC) as of this writing. Business-area categories were designed to generalize across jurisdictions, not written FCA-specific — but only spot-checked against SEC's actual output, not rigorously validated the way `risk_level`'s rubric was.
 - LLM classification is a first-pass triage aid, not a compliance judgment — a human should still read the actual announcement before acting on it, especially for anything flagged high risk.
 - No automated tests. Correctness was verified manually at each stage against real FCA data (see the build log below).
 

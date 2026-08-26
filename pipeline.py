@@ -5,7 +5,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from fetch import fetch_feed_entries, fetch_article_text
+from fetch import SOURCES, fetch_feed_entries, fetch_article_text
 from llm_client import summarize_announcement
 
 load_dotenv()
@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS announcements (
     business_area TEXT,
     risk_level TEXT,
     deadline TEXT,
-    fetched_at TEXT
+    fetched_at TEXT,
+    source TEXT
 );
 """
 
@@ -29,6 +30,12 @@ CREATE TABLE IF NOT EXISTS announcements (
 def get_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
     conn.execute(SCHEMA)
+    # 加第二個來源（SEC）前建的資料庫沒有 source 欄位，用 ALTER TABLE 補上；
+    # 已經有欄位的情況下 sqlite 會丟 OperationalError，直接忽略即可。
+    try:
+        conn.execute("ALTER TABLE announcements ADD COLUMN source TEXT DEFAULT 'FCA'")
+    except sqlite3.OperationalError:
+        pass
     return conn
 
 
@@ -55,8 +62,8 @@ def process_entry(conn: sqlite3.Connection, entry: dict) -> bool:
     conn.execute(
         """
         INSERT OR IGNORE INTO announcements
-            (url, title, published_date, summary, business_area, risk_level, deadline, fetched_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            (url, title, published_date, summary, business_area, risk_level, deadline, fetched_at, source)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             url,
@@ -67,6 +74,7 @@ def process_entry(conn: sqlite3.Connection, entry: dict) -> bool:
             result.get("risk_level"),
             result.get("deadline"),
             datetime.now(timezone.utc).isoformat(),
+            entry.get("source"),
         ),
     )
     conn.commit()
@@ -75,28 +83,31 @@ def process_entry(conn: sqlite3.Connection, entry: dict) -> bool:
 
 def run():
     conn = get_connection()
-    entries = fetch_feed_entries()
 
     new_count = 0
     skip_existing = 0
     skip_error = 0
 
-    for entry in entries:
-        url = entry["link"]
-        if already_fetched(conn, url):
-            skip_existing += 1
-            continue
+    for source in SOURCES:
+        entries = fetch_feed_entries(source)
+        print(f"--- {source['name']} ({source['code']})：{len(entries)} 筆 ---")
 
-        try:
-            ok = process_entry(conn, entry)
-        except Exception as exc:
-            print(f"[錯誤] 處理失敗：{entry.get('title')} ({url}) -> {exc}")
-            ok = False
+        for entry in entries:
+            url = entry["link"]
+            if already_fetched(conn, url):
+                skip_existing += 1
+                continue
 
-        if ok:
-            new_count += 1
-        else:
-            skip_error += 1
+            try:
+                ok = process_entry(conn, entry)
+            except Exception as exc:
+                print(f"[錯誤] 處理失敗：{entry.get('title')} ({url}) -> {exc}")
+                ok = False
+
+            if ok:
+                new_count += 1
+            else:
+                skip_error += 1
 
     conn.close()
     print(

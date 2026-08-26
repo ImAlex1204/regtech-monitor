@@ -1,4 +1,5 @@
-"""Week 3: Streamlit dashboard，讀取 SQLite 裡的公告資料。介面文字支援中/英切換。"""
+"""Streamlit dashboard，讀取 SQLite 裡的公告資料，比較 FCA（英國）與 SEC（美國）兩個監管機構。
+介面文字支援中/英切換。"""
 import sqlite3
 from pathlib import Path
 
@@ -7,9 +8,10 @@ import pandas as pd
 import streamlit as st
 
 # 類別色 1（藍）/ 2（橘），取自驗證過色盲安全性的固定順序調色盤，相鄰兩色的辨識度已通過檢查。
-COLOR_TOTAL = "#2a78d6"
-COLOR_HIGH_RISK = "#eb6834"
-COLOR_BAR = "#2a78d6"
+# 這組顏色代表「監管機構」這個維度，整個 dashboard 所有圖表都用同一組對照，讀者只需要學一次。
+COLOR_FCA = "#2a78d6"
+COLOR_SEC = "#eb6834"
+SOURCE_COLOR_SCALE = alt.Scale(domain=["FCA", "SEC"], range=[COLOR_FCA, COLOR_SEC])
 
 DB_PATH = Path(__file__).parent / "data" / "announcements.db"
 
@@ -18,13 +20,14 @@ TEXT = {
     "zh": {
         "page_title": "RegTech 法規變動追蹤",
         "title": "RegTech 法規變動追蹤 Dashboard",
-        "caption": "資料來源：FCA（Financial Conduct Authority）RSS Feed",
+        "caption": "資料來源：{sources} RSS Feed",
         "metric_total": "追蹤公告總數",
         "metric_high_risk": "高風險公告數",
         "metric_deadline": "含明確期限公告數",
         "sidebar_header": "篩選",
         "risk_filter": "風險等級",
         "area_filter": "受影響業務範圍",
+        "source_filter": "監管機構",
         "subheader": "公告列表（{n} 筆）",
         "lang_toggle": "English",
         "select_hint": "點選上方任一列，查看完整摘要與原文連結",
@@ -32,11 +35,10 @@ TEXT = {
         "detail_deadline_none": "無",
         "detail_link": "查看原文公告",
         "trend_header": "趨勢與分析",
-        "chart_weekly_title": "每週公告趨勢",
-        "chart_total": "公告總數",
-        "chart_high_risk": "高風險公告數",
-        "chart_week_axis": "週別",
-        "chart_area_title": "業務範圍分布",
+        "compare_header": "依監管機構比較",
+        "chart_total_by_source": "每週公告數（依機構）",
+        "chart_high_risk_by_source": "每週高風險公告數（依機構）",
+        "chart_area_title": "業務範圍分布（依機構）",
         "chart_area_axis": "公告數",
         "deadline_header": "即將到期",
         "deadline_days_left": "剩餘天數",
@@ -51,18 +53,20 @@ TEXT = {
             "deadline": "期限",
             "summary": "摘要",
             "url": "連結",
+            "source": "監管機構",
         },
     },
     "en": {
         "page_title": "RegTech Monitor",
         "title": "RegTech Regulatory Monitor Dashboard",
-        "caption": "Data source: FCA (Financial Conduct Authority) RSS Feed",
+        "caption": "Data sources: {sources} RSS feed",
         "metric_total": "Total announcements",
         "metric_high_risk": "High-risk announcements",
         "metric_deadline": "With a stated deadline",
         "sidebar_header": "Filters",
         "risk_filter": "Risk level",
         "area_filter": "Business area",
+        "source_filter": "Regulator",
         "subheader": "Announcements ({n})",
         "lang_toggle": "中文",
         "select_hint": "Select a row above to see the full summary and original link",
@@ -70,11 +74,10 @@ TEXT = {
         "detail_deadline_none": "None",
         "detail_link": "View original announcement",
         "trend_header": "Trends & Breakdown",
-        "chart_weekly_title": "Weekly Announcement Trend",
-        "chart_total": "Total",
-        "chart_high_risk": "High-risk",
-        "chart_week_axis": "Week",
-        "chart_area_title": "Announcements by Business Area",
+        "compare_header": "By Regulator",
+        "chart_total_by_source": "Weekly Announcements by Regulator",
+        "chart_high_risk_by_source": "Weekly High-Risk Announcements by Regulator",
+        "chart_area_title": "Announcements by Business Area & Regulator",
         "chart_area_axis": "Announcements",
         "deadline_header": "Upcoming Deadlines",
         "deadline_days_left": "Days left",
@@ -89,12 +92,14 @@ TEXT = {
             "deadline": "Deadline",
             "summary": "Summary",
             "url": "URL",
+            "source": "Regulator",
         },
     },
 }
 
 # 風險等級與業務範圍都是固定值（受控詞彙），非自由文字，所以連同介面一起提供英文顯示對照。
-# summary 是真正的自由文字生成內容，維持中文、不在此翻譯範圍內。
+# summary 是真正的自由文字生成內容，維持中文、不在此翻譯範圍內。監管機構代碼（FCA/SEC）
+# 兩種語言通用，不需要翻譯對照。
 RISK_LEVEL_DISPLAY = {"en": {"高": "High", "中": "Medium", "低": "Low"}}
 BUSINESS_AREA_DISPLAY = {
     "en": {
@@ -118,6 +123,13 @@ def load_data() -> pd.DataFrame:
     return df
 
 
+def source_kpi_row(sub_df: pd.DataFrame) -> None:
+    c1, c2, c3 = st.columns(3)
+    c1.metric(t["metric_total"], len(sub_df))
+    c2.metric(t["metric_high_risk"], int((sub_df["risk_level"] == "高").sum()))
+    c3.metric(t["metric_deadline"], int(sub_df["deadline"].notna().sum()))
+
+
 if "lang" not in st.session_state:
     st.session_state.lang = "zh"
 
@@ -134,71 +146,84 @@ risk_display = RISK_LEVEL_DISPLAY.get(lang, {})
 area_display = BUSINESS_AREA_DISPLAY.get(lang, {})
 
 df = load_data()
+df["published_dt"] = pd.to_datetime(df["published_date"], errors="coerce")
+df["deadline_dt"] = pd.to_datetime(df["deadline"], errors="coerce")
+# published_date 存的是機器好處理的 ISO 字串（跨來源統一格式），畫面上另外顯示人類好讀的版本。
+df["published_display"] = df["published_dt"].dt.strftime("%Y-%m-%d %H:%M").fillna(df["published_date"])
 
 st.title(t["title"])
-st.caption(t["caption"])
+st.caption(t["caption"].format(sources="、".join(sorted(df["source"].dropna().unique())) if lang == "zh" else ", ".join(sorted(df["source"].dropna().unique()))))
 
 col1, col2, col3 = st.columns(3)
 col1.metric(t["metric_total"], len(df))
 col2.metric(t["metric_high_risk"], int((df["risk_level"] == "高").sum()))
 col3.metric(t["metric_deadline"], int(df["deadline"].notna().sum()))
 
-# published_date 是 feedparser 給的人類可讀字串（例："Wednesday, August 5, 2026 - 11:32"），
-# 圖表需要真正的日期型別才能依週彙總。
-df["published_dt"] = pd.to_datetime(df["published_date"], format="%A, %B %d, %Y - %H:%M", errors="coerce")
-
 st.subheader(t["trend_header"])
+st.markdown(f"**{t['compare_header']}**")
 
-weekly = (
+source_codes = sorted(df["source"].dropna().unique())
+kpi_cols = st.columns(len(source_codes))
+for col, code in zip(kpi_cols, source_codes):
+    with col:
+        st.caption(code)
+        source_kpi_row(df[df["source"] == code])
+
+weekly_by_source = (
     df.dropna(subset=["published_dt"])
-    .set_index("published_dt")
-    .resample("W")
+    .groupby(["source", pd.Grouper(key="published_dt", freq="W")])
     .agg(total=("url", "count"), high_risk=("risk_level", lambda s: (s == "高").sum()))
     .reset_index()
 )
-weekly_long = weekly.melt(
-    id_vars="published_dt", value_vars=["total", "high_risk"],
-    var_name="series", value_name="count",
-)
-series_label = {"total": t["chart_total"], "high_risk": t["chart_high_risk"]}
-weekly_long["series"] = weekly_long["series"].map(series_label)
 
-trend_chart = (
-    alt.Chart(weekly_long)
-    .mark_line(point=True, strokeWidth=2)
-    .encode(
-        x=alt.X("published_dt:T", title=None, axis=alt.Axis(format="%b %d")),
-        y=alt.Y("count:Q", title=None),
-        color=alt.Color(
-            "series:N",
-            scale=alt.Scale(domain=[t["chart_total"], t["chart_high_risk"]], range=[COLOR_TOTAL, COLOR_HIGH_RISK]),
-            legend=alt.Legend(title=None),
-        ),
-        tooltip=[alt.Tooltip("published_dt:T", title=t["chart_week_axis"]), "series:N", "count:Q"],
+trend_col1, trend_col2 = st.columns(2)
+with trend_col1:
+    total_trend = (
+        alt.Chart(weekly_by_source)
+        .mark_line(point=True, strokeWidth=2)
+        .encode(
+            x=alt.X("published_dt:T", title=None, axis=alt.Axis(format="%b %d")),
+            y=alt.Y("total:Q", title=None),
+            color=alt.Color("source:N", scale=SOURCE_COLOR_SCALE, legend=alt.Legend(title=None)),
+            tooltip=["published_dt:T", "source:N", "total:Q"],
+        )
+        .properties(height=260, title=t["chart_total_by_source"])
     )
-    .properties(height=280, title=t["chart_weekly_title"])
-)
-st.altair_chart(trend_chart, use_container_width=True)
+    st.altair_chart(total_trend, use_container_width=True)
 
-area_counts = df["business_area"].value_counts().reset_index()
-area_counts.columns = ["business_area", "count"]
+with trend_col2:
+    high_risk_trend = (
+        alt.Chart(weekly_by_source)
+        .mark_line(point=True, strokeWidth=2)
+        .encode(
+            x=alt.X("published_dt:T", title=None, axis=alt.Axis(format="%b %d")),
+            y=alt.Y("high_risk:Q", title=None),
+            color=alt.Color("source:N", scale=SOURCE_COLOR_SCALE, legend=alt.Legend(title=None)),
+            tooltip=["published_dt:T", "source:N", "high_risk:Q"],
+        )
+        .properties(height=260, title=t["chart_high_risk_by_source"])
+    )
+    st.altair_chart(high_risk_trend, use_container_width=True)
+
+area_by_source = df.groupby(["business_area", "source"]).size().reset_index(name="count")
 if lang == "en":
-    area_counts["business_area"] = area_counts["business_area"].map(lambda v: area_display.get(v, v))
+    area_by_source["business_area"] = area_by_source["business_area"].map(lambda v: area_display.get(v, v))
 
 area_chart = (
-    alt.Chart(area_counts)
-    .mark_bar(color=COLOR_BAR, cornerRadiusTopRight=3, cornerRadiusBottomRight=3)
+    alt.Chart(area_by_source)
+    .mark_bar()
     .encode(
+        y=alt.Y("business_area:N", sort=alt.EncodingSortField(field="count", op="sum", order="descending"), title=None),
         x=alt.X("count:Q", title=t["chart_area_axis"]),
-        y=alt.Y("business_area:N", sort="-x", title=None),
-        tooltip=["business_area:N", "count:Q"],
+        yOffset="source:N",
+        color=alt.Color("source:N", scale=SOURCE_COLOR_SCALE, legend=alt.Legend(title=None)),
+        tooltip=["business_area:N", "source:N", "count:Q"],
     )
-    .properties(height=280, title=t["chart_area_title"])
+    .properties(height=320, title=t["chart_area_title"])
 )
 st.altair_chart(area_chart, use_container_width=True)
 
 st.subheader(t["deadline_header"])
-df["deadline_dt"] = pd.to_datetime(df["deadline"], errors="coerce")
 today = pd.Timestamp.now().normalize()
 upcoming = df[df["deadline_dt"].notna() & (df["deadline_dt"] >= today)].sort_values("deadline_dt").copy()
 
@@ -209,9 +234,10 @@ else:
     upcoming["_risk_display"] = upcoming["risk_level"].map(lambda v: risk_display.get(v, v)) if lang == "en" else upcoming["risk_level"]
     upcoming["_area_display"] = upcoming["business_area"].map(lambda v: area_display.get(v, v)) if lang == "en" else upcoming["business_area"]
 
-    upcoming_display = upcoming[["deadline", t["deadline_days_left"], "_risk_display", "_area_display", "title", "url"]].rename(
+    upcoming_display = upcoming[["deadline", t["deadline_days_left"], "source", "_risk_display", "_area_display", "title", "url"]].rename(
         columns={
             "deadline": t["columns"]["deadline"],
+            "source": t["columns"]["source"],
             "_risk_display": t["columns"]["risk_level"],
             "_area_display": t["columns"]["business_area"],
             "title": t["columns"]["title"],
@@ -225,6 +251,7 @@ else:
         column_config={
             t["columns"]["deadline"]: st.column_config.TextColumn(width="small"),
             t["deadline_days_left"]: st.column_config.TextColumn(width="small"),
+            t["columns"]["source"]: st.column_config.TextColumn(width="small"),
             t["columns"]["risk_level"]: st.column_config.TextColumn(width="small"),
             t["columns"]["business_area"]: st.column_config.TextColumn(width="medium"),
             t["columns"]["title"]: st.column_config.TextColumn(width="large"),
@@ -235,7 +262,9 @@ else:
 st.sidebar.header(t["sidebar_header"])
 risk_options = sorted(df["risk_level"].dropna().unique())
 area_options = sorted(df["business_area"].dropna().unique())
+source_options = sorted(df["source"].dropna().unique())
 
+selected_source = st.sidebar.multiselect(t["source_filter"], source_options, default=source_options)
 selected_risk = st.sidebar.multiselect(
     t["risk_filter"], risk_options, default=risk_options,
     format_func=lambda v: risk_display.get(v, v),
@@ -245,18 +274,22 @@ selected_area = st.sidebar.multiselect(
     format_func=lambda v: area_display.get(v, v),
 )
 
-filtered = df[df["risk_level"].isin(selected_risk) & df["business_area"].isin(selected_area)]
+filtered = df[
+    df["source"].isin(selected_source)
+    & df["risk_level"].isin(selected_risk)
+    & df["business_area"].isin(selected_area)
+]
 
 st.subheader(t["subheader"].format(n=len(filtered)))
 
 # 摘要/連結不進主表格（否則會被標題擠出畫面外）。表格只留「一眼能掃過」的分類欄位，
 # 點選某一列後在下方詳細卡片顯示完整摘要與原文連結。
-grid_cols = ["risk_level", "business_area", "published_date", "title", "deadline"]
+grid_cols = ["source", "risk_level", "business_area", "published_display", "title", "deadline"]
 display_df = filtered[grid_cols].copy()
 if lang == "en":
     display_df["risk_level"] = display_df["risk_level"].map(lambda v: risk_display.get(v, v))
     display_df["business_area"] = display_df["business_area"].map(lambda v: area_display.get(v, v))
-display_df = display_df.rename(columns=t["columns"])
+display_df = display_df.rename(columns={**t["columns"], "published_display": t["columns"]["published_date"]})
 
 event = st.dataframe(
     display_df,
@@ -265,6 +298,7 @@ event = st.dataframe(
     on_select="rerun",
     selection_mode="single-row",
     column_config={
+        t["columns"]["source"]: st.column_config.TextColumn(width="small"),
         t["columns"]["risk_level"]: st.column_config.TextColumn(width="small"),
         t["columns"]["business_area"]: st.column_config.TextColumn(width="medium"),
         t["columns"]["published_date"]: st.column_config.TextColumn(width="medium"),
@@ -282,7 +316,7 @@ if selected_rows:
 
     with st.container(border=True):
         st.markdown(f"#### {row['title']}")
-        st.caption(f"{row['published_date']}  ·  {risk_label}  ·  {area_label}  ·  {t['detail_deadline']}: {deadline_label}")
+        st.caption(f"{row['source']}  ·  {row['published_display']}  ·  {risk_label}  ·  {area_label}  ·  {t['detail_deadline']}: {deadline_label}")
         st.write(row["summary"])
         st.markdown(f"[{t['detail_link']} ↗]({row['url']})")
 else:
