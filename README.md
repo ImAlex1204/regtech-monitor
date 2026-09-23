@@ -88,7 +88,7 @@ The dashboard opens automatically at `http://localhost:8501`.
 
 ## Automation (optional)
 
-A GitHub Actions workflow (`.github/workflows/daily-pipeline.yml`) runs `pipeline.py` daily at 07:00 UTC and commits any newly-classified announcements straight back to `data/announcements.db`, so the dashboard stays current without anyone running it by hand. To enable it on your own fork:
+A GitHub Actions workflow (`.github/workflows/daily-pipeline.yml`) runs `pipeline.py` once a day across all configured regulators (scheduled for 07:00 UTC; GitHub's scheduler routinely starts cron jobs hours late, so in practice runs land around midday UTC) and commits any newly-classified announcements straight back to `data/announcements.db`, so the dashboard stays current without anyone running it by hand. To enable it on your own fork:
 
 1. In the repo's **Settings → Secrets and variables → Actions**, add a repository secret named `GEMINI_API_KEY` with your key.
 2. In **Settings → Actions → General → Workflow permissions**, select "Read and write permissions" (the workflow needs to push its own commits).
@@ -114,10 +114,10 @@ regtech-monitor/
 
 ## Scope & limitations
 
-- Runs on-demand (`python3 pipeline.py`), not on a schedule. Automating this via GitHub Actions is a natural next step but wasn't part of the initial 4-week build.
+- Refreshes once a day, not in real time. A scheduled GitHub Actions run (see [Automation](#automation-optional)) picks up new announcements daily; anything published after that day's run shows up the next day.
 - Two data sources (FCA, SEC) as of this writing. Business-area categories were designed to generalize across jurisdictions, not written FCA-specific — but only spot-checked against SEC's actual output, not rigorously validated the way `risk_level`'s rubric was.
 - LLM classification is a first-pass triage aid, not a compliance judgment — a human should still read the actual announcement before acting on it, especially for anything flagged high risk.
-- No automated tests. Correctness was verified manually at each stage against real FCA data (see the build log below).
+- No automated tests. Correctness was verified manually at each stage against real FCA and SEC data (see the build log below).
 
 ## Build log
 

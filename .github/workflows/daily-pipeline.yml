@@ -1,8 +1,8 @@
-name: Daily FCA pipeline
+name: Daily regulator pipeline
 
 on:
   schedule:
-    - cron: "0 7 * * *"  # 07:00 UTC daily (after FCA's own business hours updates settle)
+    - cron: "0 7 * * *"  # 07:00 UTC daily; GitHub often starts scheduled runs hours late
   workflow_dispatch: {}
 
 permissions:
@@ -33,5 +33,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/announcements.db
-          git diff --cached --quiet && echo "No new announcements, nothing to commit." || git commit -m "Auto-update: new FCA announcements $(date -u +%Y-%m-%d)"
+          git diff --cached --quiet && echo "No new announcements, nothing to commit." || git commit -m "Auto-update: new FCA/SEC announcements $(date -u +%Y-%m-%d)"
           git push
