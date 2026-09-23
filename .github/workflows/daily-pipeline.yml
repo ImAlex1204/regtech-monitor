@@ -28,10 +28,13 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 pipeline.py
 
-      - name: Commit updated database
+      - name: Export JSON for the web dashboard
+        run: python3 export_json.py
+
+      - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/announcements.db
+          git add data/announcements.db data/announcements.json
           git diff --cached --quiet && echo "No new announcements, nothing to commit." || git commit -m "Auto-update: new FCA/SEC announcements $(date -u +%Y-%m-%d)"
           git push

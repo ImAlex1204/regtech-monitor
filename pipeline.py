@@ -1,4 +1,5 @@
 """Week 2: 批次抓取 -> 摘要 -> 去重 -> 存入 SQLite，單筆失敗不中斷整批。"""
+import json
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -22,20 +23,33 @@ CREATE TABLE IF NOT EXISTS announcements (
     risk_level TEXT,
     deadline TEXT,
     fetched_at TEXT,
-    source TEXT
+    source TEXT,
+    frameworks TEXT,
+    action TEXT,
+    status TEXT NOT NULL DEFAULT 'todo'
 );
 """
+
+# 資料表建好之後才加的欄位：舊資料庫缺哪個就補哪個。
+# status 是使用者在 dashboard 手動設定的處理狀態（todo / in_progress / done / na）：
+# pipeline 只用 INSERT OR IGNORE 新增列，reclassify.py 也只 UPDATE 分類欄位，兩者都不會碰 status。
+ADDED_COLUMNS = {
+    "source": "TEXT DEFAULT 'FCA'",  # 加第二個來源（SEC）前的資料都是 FCA
+    "frameworks": "TEXT",  # JSON 陣列：[{"name": ..., "reason": ...}]，name 來自 llm_client.FRAMEWORKS
+    "action": "TEXT",
+    "status": "TEXT NOT NULL DEFAULT 'todo'",
+}
+STATUSES = ("todo", "in_progress", "done", "na")
 
 
 def get_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
     conn.execute(SCHEMA)
-    # 加第二個來源（SEC）前建的資料庫沒有 source 欄位，用 ALTER TABLE 補上；
-    # 已經有欄位的情況下 sqlite 會丟 OperationalError，直接忽略即可。
-    try:
-        conn.execute("ALTER TABLE announcements ADD COLUMN source TEXT DEFAULT 'FCA'")
-    except sqlite3.OperationalError:
-        pass
+    existing = {row[1] for row in conn.execute("PRAGMA table_info(announcements)")}
+    for column, definition in ADDED_COLUMNS.items():
+        if column not in existing:
+            conn.execute(f"ALTER TABLE announcements ADD COLUMN {column} {definition}")
+    conn.commit()
     return conn
 
 
@@ -62,8 +76,9 @@ def process_entry(conn: sqlite3.Connection, entry: dict) -> bool:
     conn.execute(
         """
         INSERT OR IGNORE INTO announcements
-            (url, title, published_date, summary, business_area, risk_level, deadline, fetched_at, source)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            (url, title, published_date, summary, business_area, risk_level, deadline, fetched_at, source,
+             frameworks, action)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             url,
@@ -75,6 +90,8 @@ def process_entry(conn: sqlite3.Connection, entry: dict) -> bool:
             result.get("deadline"),
             datetime.now(timezone.utc).isoformat(),
             entry.get("source"),
+            json.dumps(result.get("frameworks", []), ensure_ascii=False),
+            result.get("action"),
         ),
     )
     conn.commit()
