@@ -1,0 +1,1275 @@
+{
+ "last_fetched_at": "2026-09-23T12:36:59.158420+00:00",
+ "announcements": [
+  {
+   "url": "https://www.fca.org.uk/news/speeches/building-next-generation-market-infrastructure",
+   "title": "Building the next generation of market infrastructure",
+   "source": "FCA",
+   "published_date": "2026-09-23T12:17:00+00:00",
+   "summary": "Nikhil Rathi, FCA chief executive, delivered a speech discussing the evolution of market infrastructure, tokenisation, and AI in the UK financial sector. He highlighted that the FCA and Bank of England will release an upcoming joint tokenisation roadmap to guide the transition from testing to established infrastructure. Additionally, the FCA intends to consult on safeguarding rules for relevant tokenised investment assets following industry feedback.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The speech discusses tokenisation, stablecoins, cryptoassets, and the FCA's upcoming consultation on safeguarding rules for relevant tokenised investment assets and digital assets."
+    }
+   ],
+   "action": "Review the upcoming joint tokenisation roadmap with the Bank of England and monitor forthcoming FCA consultations on safeguarding rules for tokenised investment assets.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/firms-crack-down-money-mules-need-do-more",
+   "title": "Firms crack down on money mules but need to do more",
+   "source": "FCA",
+   "published_date": "2026-09-23T10:03:00+00:00",
+   "summary": "Financial firms closed over 238,000 suspected money mule accounts in 2025, reflecting improved identification and rising criminal activity. Despite these actions, organised criminal groups continue to launder billions through complex multi-account networks before cashing out. The FCA and law enforcement are collaborating on industry action plans to enhance intelligence sharing and early detection.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review current detection and early-closure protocols for suspected money mule accounts to align with FCA economic crime priorities and intelligence-sharing initiatives.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-91-sec-censures-otc-link-llc-repeated-compliance-failures-related-regulation-sci",
+   "title": "SEC Censures OTC Link LLC for Repeated Compliance Failures Related to Regulation SCI",
+   "source": "SEC",
+   "published_date": "2026-09-22T16:41:11+00:00",
+   "summary": "The SEC censured broker-dealer OTC Link LLC and ordered a $575,000 civil penalty for longstanding violations of Regulation SCI. The firm repeatedly failed to establish, maintain, and enforce written policies and procedures regarding system security, access control, and vulnerability management for its alternative trading system. Without admitting the findings, OTC Link agreed to a cease-and-desist order, censure, and the financial penalty.",
+   "business_area": "市場行為與交易誠信",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review and update written policies and procedures for SCI systems, including security, access control, and vulnerability management, to ensure compliance with Regulation SCI Rule 1001 requirements.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/debt-advice-warning-spot-red-flags",
+   "title": "Debt advice warning: spot the red flags",
+   "source": "FCA",
+   "published_date": "2026-09-22T10:01:00+00:00",
+   "summary": "The FCA warns consumers seeking debt advice to watch out for red flags such as fee-paying solutions pushed through high-pressure sales tactics or by unauthorized firms. Regulators recently took enforcement action against Curtis Faraday and banned a senior manager at Beauforce Corporation Limited. Consumers with debt management plans through Beauforce are urged to stop payments and seek alternative support.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review consumer debt advice onboarding and sales practices against FCA guidance to ensure appropriate permissions and prevent misleading fee-charging steering.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-takes-hunter-jones-high-court-over-alleged-unauthorised-activity",
+   "title": "FCA takes Hunter Jones to High Court over alleged unauthorised activity",
+   "source": "FCA",
+   "published_date": "2026-09-21T12:57:00+00:00",
+   "summary": "The FCA has initiated High Court proceedings against Hunter Jones Group for allegedly conducting regulated activities without authorization. The regulator is seeking court orders to halt these activities and secure the return of funds to investors. Consumers dealing with this unauthorized firm are warned of heightened financial risks and lack of standard protections.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review client lists and marketing materials to ensure no exposure to Hunter Jones and monitor FCA updates regarding potential investor remediation.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-partners-help-improve-financial-security-millions",
+   "title": "FCA and partners join forces to help improve financial security for millions",
+   "source": "FCA",
+   "published_date": "2026-09-21T11:04:00+00:00",
+   "summary": "The FCA is partnering with industry, government, and consumer groups to expand protection insurance coverage for millions of unprotected adults. Initiatives include addressing rule misunderstandings, reducing medical record delays, and hosting a TechSprint. Additionally, the FCA published findings on the protection market, reminding firms of their Consumer Duty and product governance obligations.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": "2023-11-13",
+   "frameworks": [
+    {
+     "name": "Consumer Duty",
+     "reason": "The text explicitly reminds firms of requirements and good practice under the Consumer Duty and its product governance rules."
+    }
+   ],
+   "action": "Review the Pure Protection Market Study findings and assess current product governance and fair value evidence to ensure alignment with Consumer Duty outcomes.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/speeches/building-stronger-uk-investment-culture",
+   "title": "Building a stronger UK investment culture",
+   "source": "FCA",
+   "published_date": "2026-09-18T11:03:00+00:00",
+   "summary": "Lucy Castledine outlined the regulator's vision for a resilient UK investment culture at the 2026 Investor Summit, focusing on growth and innovation, simpler communications, and tackling fraud. She highlighted recent retail investment reforms, including the targeted support regime and consultations on simplifying the advice framework and product disclosures. Additionally, she emphasized the importance of robust consumer protection, addressing risks related to AI usage in financial decisions, and combating unlawful finfluencers and fraudulent advertisements.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Consumer Duty",
+     "reason": "The text explicitly mentions the Consumer Duty's consumer understanding outcome in relation to clear and useful information provided to consumers."
+    }
+   ],
+   "action": "Review product disclosure documents and financial promotion practices to align with the Consumer Duty's consumer understanding outcome before the end of 2026.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/speeches/financial-crime-protecting-hive",
+   "title": "Financial crime: protecting the hive",
+   "source": "FCA",
+   "published_date": "2026-09-17T13:02:00+00:00",
+   "summary": "Steve Smart delivered a speech discussing the importance of collective action and partnership between the FCA, law enforcement, and firms to combat financial crime. He highlighted the FCA's ongoing efforts in intelligence-led supervision, data sharing, and technology integration. Additionally, he addressed preparations for the FCA's upcoming role in taking over AML supervision for the legal and accounting sectors.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "AML (MLRs / BSA)",
+     "reason": "The text discusses anti-money laundering supervision, the Money Laundering Regulations, Defence Against Money Laundering Suspicious Activity Report threshold, and the FCA taking on AML supervision for legal and accounting sectors."
+    }
+   ],
+   "action": "Legal and accounting sector firms should review their anti-money laundering controls and engage with the FCA ahead of its assumption of AML supervisory responsibilities in late 2028.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+   "title": "SEC Issues “Innovation Exemption” to Facilitate the Trading of Tokenized NMS Stock and Request for Comment",
+   "source": "SEC",
+   "published_date": "2026-09-17T12:55:00+00:00",
+   "summary": "The SEC issued an order granting temporary, conditional exemptive relief known as the 'Innovation Exemption' to Tokenized Securities Venues to trade tokenized NMS stock. The order also temporarily grants a conditional exemption from the definition of 'dealer' to liquidity providers in associated AMM Liquidity Pools. Furthermore, the Commission is soliciting public comments on all aspects of the exemption and potential next steps.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Exchange Act",
+     "reason": "The text grants exemptive relief from the definition of 'exchange' and 'dealer' as defined in the Securities Exchange Act of 1934."
+    },
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The text establishes an 'Innovation Exemption' specifically to facilitate the trading of tokenized NMS stock and onchain secondary trading on Tokenized Securities Venues."
+    }
+   ],
+   "action": "Review the SEC's temporary exemptive relief conditions for Tokenized Securities Venues and evaluate potential onchain trading participation in tokenized NMS stock.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-and-partners-continues-crackdown-illegal-crypto-trading",
+   "title": "FCA and partners continues crackdown on illegal crypto trading",
+   "source": "FCA",
+   "published_date": "2026-09-17T11:31:00+00:00",
+   "summary": "The FCA, alongside HMRC and the Metropolitan Police, targeted three London premises suspected of illegal peer-to-peer crypto trading. Cease and desist letters were issued to the traders to halt unregistered crypto business operations. The enforcement highlights ongoing joint efforts to combat money laundering and illicit fund movements via digital assets.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The text states that 'Anyone doing this by way of business in the UK requires appropriate registration' and highlights that 'Unregistered peer-to-peer crypto traders operating by way of business in the UK can provide a route for criminals to move and launder illicit funds' outside the FCA's registration regime."
+    }
+   ],
+   "action": "Review institutional peer-to-peer crypto operations and client onboarding controls against FCA crypto-asset registration requirements.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-sets-out-steps-support-small-businesses-access-finance",
+   "title": "FCA sets out steps to support small businesses' access to finance",
+   "source": "FCA",
+   "published_date": "2026-09-17T10:36:00+00:00",
+   "summary": "The FCA published the findings of its review on SME access to finance, concluding that regulation is not a major barrier. It identified key challenges such as limited awareness and complex application processes. The regulator is now focusing on three practical areas to reduce friction and support a more proportionate regulatory framework.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review the FCA's three focus areas for reducing friction in SME finance to assess potential impacts on product marketing and consumer support strategies.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/enforcement-investigations/fca-opens-investigation-euro-exchange-securities-uk-ltd",
+   "title": "FCA opens investigation into Euro Exchange Securities UK Ltd",
+   "source": "FCA",
+   "published_date": "2026-09-17T09:13:00+00:00",
+   "summary": "The FCA has opened an investigation into Euro Exchange Securities UK Ltd (EES) regarding potential offences under the Money Laundering Regulations 2017. The inquiry focuses on whether EES failed to properly identify, assess, and document money laundering risks between February 2020 and June 2026. Investigators are also examining potential failures in establishing and maintaining effective policies, controls, and procedures to mitigate those risks.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "AML (MLRs / BSA)",
+     "reason": "The text explicitly states that EES may have committed offences under the Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017 (the MLRs)."
+    }
+   ],
+   "action": "Review current anti-money laundering risk assessments, policies, controls, and procedures against the Money Laundering Regulations 2017 to ensure full compliance.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/blogs/better-outcomes-payment-firms-understand-customer-needs",
+   "title": "Better outcomes begin when payment firms understand customers’ needs",
+   "source": "FCA",
+   "published_date": "2026-09-17T09:00:00+00:00",
+   "summary": "The FCA highlights findings from its consumer vulnerability review for payment and e-money firms, emphasizing the importance of understanding customer needs. It reminds firms that under the Consumer Duty, they must act to deliver good outcomes for retail customers, including those in vulnerable circumstances. Firms are encouraged to review their practical effectiveness using management information and feedback to ensure payment services remain accessible.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Consumer Duty",
+     "reason": "The text states that 'Under the Consumer Duty, firms should act to deliver good outcomes for retail customers, including those in vulnerable circumstances.'"
+    }
+   ],
+   "action": "Review current support mechanisms and management information against the FCA's consumer vulnerability review findings to ensure good outcomes for vulnerable retail customers.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/fca-opens-investigation-euro-exchange-securities-uk-ltd",
+   "title": "FCA opens investigation into Euro Exchange Securities UK Ltd",
+   "source": "FCA",
+   "published_date": "2026-09-16T21:13:00+00:00",
+   "summary": "The Financial Conduct Authority (FCA) has opened an investigation into Euro Exchange Securities UK Ltd (EES) regarding potential offences under the Money Laundering Regulations 2017. The investigation focuses on the period between 1 February 2020 and 4 June 2026, examining whether EES failed to properly identify, assess, and mitigate money laundering risks. The regulator notes that no final conclusions have been reached yet regarding whether any breaches actually occurred.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "AML (MLRs / BSA)",
+     "reason": "The text explicitly states that EES may have committed offences under the Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017 (the MLRs)."
+    }
+   ],
+   "action": "Review firm-wide money laundering risk assessments, policies, controls, and procedures against the Money Laundering Regulations 2017 to ensure adequate mitigation of customer, geographic, and transaction risks.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-89-sec-proposes-rescission-shareholder-proposal-rule-reforms-proxy-solicitation-process",
+   "title": "SEC Proposes Rescission of Shareholder Proposal Rule and Reforms to Proxy Solicitation Process",
+   "source": "SEC",
+   "published_date": "2026-09-16T14:00:00+00:00",
+   "summary": "The SEC proposed rescinding Rule 14a-8 regarding shareholder proposals, citing statutory overreach and unintended intrusions into state corporate law. The agency also proposed amendments to Rule 14a-4(c) and modernizing the proxy solicitation process to align with technological advancements. Public comment periods will remain open for 60 days following publication in the Federal Register.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Exchange Act",
+     "reason": "The text explicitly proposes the rescission of Rule 14a-8 and amendments to Rule 14a-4(c) under the Securities Exchange Act of 1934."
+    }
+   ],
+   "action": "Review the proposed SEC rule changes regarding the rescission of Rule 14a-8 and proxy solicitation amendments under the Exchange Act, and prepare feedback during the 60-day public comment period.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/crypto-firms-get-guidance-how-new-regime-applies",
+   "title": "Crypto firms get guidance on how the new regime applies",
+   "source": "FCA",
+   "published_date": "2026-09-16T11:00:00+00:00",
+   "summary": "The UK Financial Conduct Authority has issued new guidance to help crypto firms understand the application of the upcoming cryptoasset regime and determine authorization requirements. The regulatory framework officially enters into force on October 25, 2027, with authorization applications opening on September 30, 2026. This comprehensive guidance covers various activities including stablecoin issuance, trading platform operations, dealing, safeguarding, and staking services.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": "2027-10-25",
+   "frameworks": [
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The text explicitly outlines guidance for firms on how the law underpinning the UK's future cryptoasset regime applies to their business and authorisation requirements."
+    }
+   ],
+   "action": "Review the newly published FCA guidance to determine authorisation requirements and prepare compliance processes ahead of the regime's enforcement date on 2027-10-25.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/financial-regulator-bans-former-law-firm-owner-financial-services",
+   "title": "Financial regulator bans former law firm owner from financial services",
+   "source": "FCA",
+   "published_date": "2026-09-15T13:13:00+00:00",
+   "summary": "The FCA has banned Nurul Miah from working in financial services following findings that he dishonestly misappropriated over £28m of client money. The regulator concluded that Miah lacked the honesty and integrity required for the financial sector. This enforcement action aims to protect consumers and maintain confidence in the financial system.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Ensure compliance screening processes correctly identify and block individuals subject to FCA prohibition orders from senior management and financial services roles.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-88-sec-grants-exemptive-relief-certain-inline-xbrl-filing-or-submission-requirements",
+   "title": "SEC Grants Exemptive Relief from Certain Inline XBRL Filing or Submission Requirements",
+   "source": "SEC",
+   "published_date": "2026-09-14T16:47:00+00:00",
+   "summary": "The SEC issued an order granting exemptive relief from certain Inline XBRL filing and submission requirements adopted in December 2024. The relief applies to specific forms used by market intermediaries, including Form CA-1, Form 1, Form X-17A-5 Part III, Form 17-H, and annual compliance reports for security-based swap entities. This action aims to reduce unnecessary compliance costs for market participants while maintaining investor protection.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Exchange Act",
+     "reason": "The text notes that the forms are used to assess whether registered entities meet standards necessary to comply with the Exchange Act."
+    }
+   ],
+   "action": "Review the firm's regulatory reporting obligations to determine if relief from Inline XBRL formatting applies to Form CA-1, Form 1, Form X-17A-5 Part III, Form 17-H, or security-based swap dealer compliance reports.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/premier-payment-solutions-ltd-enters-liquidation",
+   "title": "Premier Payment Solutions Ltd enters liquidation",
+   "source": "FCA",
+   "published_date": "2026-09-14T16:10:00+00:00",
+   "summary": "Premier Payment Solutions Ltd, trading as PPS Money, entered liquidation on 10 September 2026 due to significant financial difficulties. Joint liquidators from BTG Begbies Traynor have been appointed to manage the process and assess customer claims for fund distribution. Customers are advised to contact the liquidators directly regarding claims and to remain cautious of third-party firms and potential fraud.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": "2026-09-10",
+   "frameworks": [],
+   "action": "Review client exposures and monitor communications from the joint liquidators regarding the liquidation and claims process for Premier Payment Solutions Ltd.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/upper-tribunal-upholds-crispin-odey-ban",
+   "title": "Upper Tribunal upholds Crispin Odey ban",
+   "source": "FCA",
+   "published_date": "2026-09-14T14:47:00+00:00",
+   "summary": "The Upper Tribunal has upheld the financial services industry ban and a reduced £1.53 million fine against Crispin Odey after finding him to lack integrity. The Tribunal fully upheld all five FCA allegations, noting that he abused his power, bullied executives, and halted internal disciplinary processes regarding his inappropriate behavior. The ruling reinforces regulatory standards on personal accountability, governance, and the enforcement of fitness and propriety within regulated firms.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review internal governance structures and executive accountability frameworks to ensure senior managers cannot override disciplinary processes or bypass oversight bodies.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-87-joint-readout-principals-meeting-us-uk-authorities-regarding-central-counterparty-resolution",
+   "title": "Joint Readout of Principals’ Meeting of U.S. and UK Authorities Regarding Central Counterparty Resolution",
+   "source": "SEC",
+   "published_date": "2026-09-11T15:00:00+00:00",
+   "summary": "Senior officials from U.S. and UK regulatory authorities convened for a tabletop exercise on September 3, 2026, to discuss issues related to the hypothetical resolution of central counterparties. The participants reviewed recent joint work, focusing on information sharing and communications arrangements to support financial stability in a CCP resolution. Authorities acknowledged the ongoing importance of maintaining dialogue, sharing analyses, and discussing policy formulation between UK and U.S. agencies.",
+   "business_area": "審慎監管與資本要求",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-86-sec-charges-founder-his-two-new-jersey-based-companies-alleged-16-million-ponzi-scheme",
+   "title": "SEC Charges Founder and His Two New Jersey-Based Companies in Alleged $16 Million Ponzi Scheme",
+   "source": "SEC",
+   "published_date": "2026-09-10T17:45:22+00:00",
+   "summary": "The SEC charged Ernest Ossei Boateng and two of his companies with orchestrating a $16 million Ponzi scheme targeting vulnerable, inexperienced investors. The defendants allegedly misappropriated millions for personal expenses and speculative trading while falsely promising guaranteed, low-risk returns. The SEC is seeking permanent injunctions, disgorgement, and civil penalties for violations of federal securities antifraud provisions.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The SEC's complaint charges the defendants with violating the antifraud provisions of the Securities Act of 1933."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The complaint charges the defendants with violating the antifraud provisions of the Securities Exchange Act of 1934."
+    },
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The complaint charges Boateng and Intercontinental with violating the antifraud provisions of the Investment Advisers Act of 1940."
+    }
+   ],
+   "action": "Review retail client onboarding and solicitation controls to detect and prevent fraudulent representations regarding guaranteed returns and affinity-based targeting.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/man-pleads-guilty-fraud-forgery-offences-fake-takeover-approach",
+   "title": "Man pleads guilty to fraud and forgery offences relating to fake takeover approach",
+   "source": "FCA",
+   "published_date": "2026-09-10T15:04:00+00:00",
+   "summary": "Christopher Woolcott has pleaded guilty to four counts of fraud and forgery after fabricating a fake takeover bid for Touchstone Exploration Inc. using false identities and forged documents to artificially influence share prices. The FCA emphasized that combating market abuse and financial crime remains a core priority of its strategy. Woolcott is awaiting sentencing at a later date.",
+   "business_area": "市場行為與交易誠信",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review internal surveillance and controls to detect potential market manipulation attempts involving fake takeover bids and forged disclosures.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-85-sec-proposes-rescission-political-contribution-rule-investment-advisers",
+   "title": "SEC Proposes Rescission of Political Contribution Rule for Investment Advisers",
+   "source": "SEC",
+   "published_date": "2026-09-03T20:30:00+00:00",
+   "summary": "The SEC issued a proposal to rescind its pay-to-play rule and related recordkeeping requirements for investment advisers. The Commission determined that the 2010 rule has caused significant unintended consequences, operational challenges, and the suppression of political speech. A 60-day public comment period will begin after the release is published in the Federal Register.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The proposal specifically seeks to rescind Advisers Act Rule 206(4)-5 and amend the Advisers Act recordkeeping rule."
+    }
+   ],
+   "action": "Monitor the Federal Register publication to track the 60-day public comment period deadline for the proposed rescission of Advisers Act Rule 206(4)-5.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-84-sec-investor-advisory-committee-host-sept-10-meeting",
+   "title": "SEC Investor Advisory Committee to Host Sept. 10 Meeting",
+   "source": "SEC",
+   "published_date": "2026-09-03T14:27:49+00:00",
+   "summary": "The SEC's Investor Advisory Committee will host a public meeting on September 10, 2026. The agenda includes discussions on artificial intelligence technologies in public markets and Regulation NMS rules. The meeting will be webcast and aims to advise the Commission on regulatory priorities.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-ban-fine-daniel-thomas-unauthorised-pension-transfer-advice",
+   "title": "FCA decides to ban and fine Daniel Thomas over unauthorised pension transfer advice",
+   "source": "FCA",
+   "published_date": "2026-09-03T10:35:00+00:00",
+   "summary": "The FCA has decided to ban Daniel Thomas and fine him £742,700 for recklessly giving unauthorised defined benefit pension transfer advice without proper qualifications. Mr Thomas has referred his Decision Notice to the Upper Tribunal, meaning the findings are currently provisional pending the Tribunal's decision. The investigation revealed he misled clients and pension providers, destroyed records, and failed to cooperate with regulators.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review appointed representative oversight and pension transfer advisory controls to ensure individuals lack unauthorized permissions.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
+   "title": "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading",
+   "source": "SEC",
+   "published_date": "2026-09-01T19:17:39+00:00",
+   "summary": "The SEC announced the agenda and panelists for its upcoming roundtable on preparations for 24-hour trading, scheduled for September 17, 2026. The event will feature discussions covering market readiness, operational resiliency, and expected impacts on liquidity and capital formation. The public can attend in person or watch via a live webcast on the SEC's website.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Monitor the SEC roundtable discussions on 24-hour trading scheduled for 2026-09-17 to assess upcoming operational and regulatory impacts on trading infrastructure.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-82-sec-charges-san-francisco-bay-area-private-fund-executives-multimillion-dollar-ponzi-scheme",
+   "title": "SEC Charges San Francisco Bay Area Private Fund Executives with Multimillion Dollar Ponzi-Like Scheme",
+   "source": "SEC",
+   "published_date": "2026-09-01T17:52:32+00:00",
+   "summary": "The SEC charged former executives of Pacific Private Money Group LLC with orchestrating an $80 million Ponzi-like scheme targeting retail investors. The defendants allegedly misappropriated funds and used new investor capital to make payments to earlier investors. They consented to judgments imposing permanent injunctions and other remedies subject to court approval.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The SEC's complaint charges Hanf and Phan with violating Section 17(a) of the Securities Act of 1933."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The SEC's complaint charges Hanf and Phan with violating Section 10(b) of the Securities Exchange Act of 1934 and Rule 10b-5 thereunder."
+    }
+   ],
+   "action": "Review private fund marketing materials, investor capital usage controls, and disclosure practices to prevent offering fraud and misrepresentations regarding real estate-backed returns under the Securities Act and Exchange Act.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-81-sec-proposes-modernize-rules-registered-transfer-agents",
+   "title": "SEC Proposes to Modernize Rules for Registered Transfer Agents",
+   "source": "SEC",
+   "published_date": "2026-09-01T14:57:00+00:00",
+   "summary": "The SEC proposed modernizing rules and forms for registered transfer agents to reflect current processes and operations, including electronic communications and blockchain technology. The proposal aims to update legacy regulations that have not been substantively revised since the late 1970s and early 1980s. A 60-day public comment period will begin following publication in the Federal Register.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review the SEC's proposed rule changes for transfer agents to assess potential impacts on operations, electronic recordkeeping, and blockchain usage during the 60-day comment period.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-urges-young-adults-check-unclaimed-child-trust-funds",
+   "title": "FCA urges young adults to check for unclaimed Child Trust Funds",
+   "source": "FCA",
+   "published_date": "2026-09-01T10:00:00+00:00",
+   "summary": "The FCA and HMRC are urging young adults and parents to check for unclaimed Child Trust Funds worth thousands of pounds. They warn against third-party firms charging high fees for free tracing services. Additionally, the FCA is launching a review to examine issues such as fair value under the Consumer Duty and access barriers for young adults.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Consumer Duty",
+     "reason": "The text states the FCA review will look at 'how firms are ensuring Child Trust Fund customers receive fair value under the Consumer Duty'."
+    }
+   ],
+   "action": "Review Child Trust Fund product offerings and pricing structures to ensure fair value compliance in anticipation of the FCA's upcoming review next year.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-80-sec-fda-announce-mou-bolster-cooperation-ensure-market-integrity",
+   "title": "SEC and FDA Announce MOU to Bolster Cooperation and Ensure Market Integrity",
+   "source": "SEC",
+   "published_date": "2026-08-31T18:24:32+00:00",
+   "summary": "The SEC and FDA announced a Memorandum of Understanding to bolster inter-agency cooperation and ensure market integrity. The agreement establishes a framework for enhanced regulatory and enforcement oversight, including new information-sharing protocols. The MOU will remain in effect for three years, aiming to improve transparency and disclosure compliance across the life sciences sector.",
+   "business_area": "市場行為與交易誠信",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Monitor public company disclosure practices related to FDA-regulated products as the SEC and FDA implement their new information-sharing protocols.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-79-sec-proposes-amendments-exchange-act-rule-3a12-8-add-european-union-debt-obligations",
+   "title": "SEC Proposes Amendments to Exchange Act Rule 3a12-8 to Add European Union Debt Obligations",
+   "source": "SEC",
+   "published_date": "2026-08-28T17:33:00+00:00",
+   "summary": "The SEC proposed amendments to Exchange Act Rule 3a12-8 to add European Union debt obligations to the list of foreign government securities exempted solely for futures marketing and trading. This action aims to harmonize regulatory treatment with existing exemptions for individual EU member states and place related futures under CFTC jurisdiction. The public comment period will remain open for 60 days following publication in the Federal Register.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Exchange Act",
+     "reason": "The text states that the SEC proposed amendments to Rule 3a12-8 under the Securities Exchange Act of 1934."
+    }
+   ],
+   "action": "Review the SEC proposal to assess the impact of adding EU debt obligations as exempted securities under Exchange Act Rule 3a12-8.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-78-sec-38-entities-feigned-legitimacy-us-advisers-through-false-filings-lure-retail-investors",
+   "title": "SEC: 38 Entities Feigned Legitimacy as U.S. Advisers Through False Filings to Lure Retail Investors",
+   "source": "SEC",
+   "published_date": "2026-08-27T21:30:00+00:00",
+   "summary": "The SEC charged 38 entities with making material misrepresentations in Forms ADV filed between 2025 and 2026 to falsely portray themselves as legitimate advisory firms. The defendants allegedly used fake addresses, disconnected phone numbers, and fabricated audit claims to lure retail investors. The SEC seeks permanent injunctions, conduct-based prohibitions, and civil penalties against the violators.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text states that the defendants were charged with 'violating Sections 204(a) and 207 of the Investment Advisers Act of 1940' through fraudulent Forms ADV filings."
+    }
+   ],
+   "action": "Review Form ADV filing validation and onboarding verification processes to ensure accurate disclosures and prevent fraudulent impersonation.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/young-investors-trust-ai-more-tv-or-celebrities",
+   "title": "Young investors trust AI more than TV or celebrities",
+   "source": "FCA",
+   "published_date": "2026-08-27T10:00:00+00:00",
+   "summary": "Recent FCA research reveals that four in five less experienced investors aged 18 to 40 use AI for investment help and largely trust it over traditional media. However, regulators warn that general purpose AI chatbots remain unregulated, leaving users with potential misconceptions about their level of consumer protection. The FCA advises investors to exercise caution, verify AI sources, and rely on official tools like InvestSmart to make informed financial decisions.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-bans-trio-bypass-visa-rules",
+   "title": "FCA bans trio behind £35.5m scheme designed to bypass visa rules",
+   "source": "FCA",
+   "published_date": "2026-08-26T10:00:00+00:00",
+   "summary": "The FCA has banned three former senior figures at Dolfin Financial for operating a deliberate scheme that helped clients bypass UK investor visa rules between 2016 and 2019. Former chief executive Denisz Nagy and former finance director Sanjay Maraj were also fined and banned from working in financial services for their roles, which included concealing the scheme's true nature from regulators. Co-founder Roman Joukovski has been banned as well, though he has referred his Decision Notice to the Upper Tribunal.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review senior management oversight and individual fitness and propriety controls to prevent deliberate circumvention of regulatory rules and concealment of activities from the FCA.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/egr-wealth-limited-enters-administration",
+   "title": "EGR Wealth Limited enters administration",
+   "source": "FCA",
+   "published_date": "2026-08-26T10:00:00+00:00",
+   "summary": "EGR Wealth Limited entered administration on 24 August 2026, with Robert Goodhew and Geoff Bouchier appointed as joint administrators to manage the firm's affairs. The firm previously agreed to a voluntary requirement restricting its activities and is currently working with the FCA, FSCS, and administrators regarding client portfolios and inquiries. Customers are advised to contact the joint administrators directly with questions, monitor their accounts, and remain cautious of fraud and third-party claims management companies.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": "2026-08-24",
+   "frameworks": [],
+   "action": "Review client communications and direct impacted customers of EGR Wealth Limited to contact the joint administrators regarding their accounts and investment options following the administration on 2026-08-24.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/consumers-warned-beware-risky-mini-bonds-and-loan-notes",
+   "title": "Consumers warned to beware of risky mini-bonds and loan notes",
+   "source": "FCA",
+   "published_date": "2026-08-20T10:00:00+00:00",
+   "summary": "The FCA is warning retail consumers about the severe risks of investing in loan notes and mini-bonds issued by unregulated companies following recent investor losses. Despite a permanent ban on marketing speculative illiquid securities to retail investors implemented in January 2021, consumers continue to encounter misleading advertisements online and on social media. The regulator emphasizes that high fixed returns are a warning sign and urges both consumers and regulated firms to report suspicious investment activities.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review marketing and distribution controls to ensure no facilitation of speculative illiquid securities or unlawful promotions to retail investors.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/statements/unregulated-loan-notes-mini-bonds-dont-risk-savings-promises-high-returns",
+   "title": "Unregulated loan notes and mini-bonds: don't risk your savings on promises of high returns",
+   "source": "FCA",
+   "published_date": "2026-08-20T10:00:00+00:00",
+   "summary": "The text warns the public about the severe risks associated with unregulated loan notes and mini-bonds marketed to ordinary retail investors. It highlights that the marketing ban on speculative mini-bonds and loan notes took effect from 1 January 2021 to protect consumers from complex, high-risk products. Furthermore, it advises investors to verify firm authorizations and watch out for scams that promise unrealistically high returns.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-fines-bans-former-svs-securities-ceo",
+   "title": "FCA fines and bans former SVS Securities CEO",
+   "source": "FCA",
+   "published_date": "2026-08-19T15:01:00+00:00",
+   "summary": "The FCA has fined former SVS Securities CEO Demetrios Hadjigeorgiou £56,400 and banned him from senior management positions. He failed to properly manage the firm and protect customer interests by investing pension savings in high-risk products for personal gain. The regulatory action follows the settlement of his case after he withdrew his referral to the Upper Tribunal.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review senior management oversight and customer asset protection controls to ensure compliance with FCA leadership standards following the enforcement action against Demetrios Hadjigeorgiou.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
+   "title": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
+   "source": "SEC",
+   "published_date": "2026-08-18T19:55:10+00:00",
+   "summary": "The SEC charged former executives of Tricolor Holdings with fraud for a multi-year scheme involving the double pledging of subprime auto loans to multiple asset-backed securities offerings. The defendants allegedly misled investors about the company's financial health and manipulated loan metrics while raising over $1.9 billion. The complaint seeks injunctive relief, disgorgement, civil penalties, and officer and director bars against the former executives.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The complaint charges the defendants with violating the antifraud provisions of the Securities Act of 1933 in connection with asset-backed securities offerings."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The complaint charges the defendants with violating the antifraud provisions of the Securities Exchange Act of 1934 in connection with ABS offerings and private credit markets."
+    }
+   ],
+   "action": "Review asset-backed securities collateral management and verification controls to prevent double-pledging risks highlighted in the SEC enforcement action.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
+   "title": "SEC Proposes New Regulation Crypto Assets",
+   "source": "SEC",
+   "published_date": "2026-08-18T17:15:48+00:00",
+   "summary": "The Securities and Exchange Commission has proposed Regulation Crypto Assets to establish a tailored regulatory framework and registration exemptions for investment contracts involving crypto assets. The proposal introduces two capital-raising exemptions with specific disclosure requirements and a conditional safe harbor from security definitions. The public comment period is open for 60 days following publication in the Federal Register.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The proposed rules include two exemptions from the registration requirements of the Securities Act of 1933 specifically tailored to certain investment contracts involving crypto assets."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The proposed rules also include a conditional safe harbor from the term 'investment contract' in the definitions of 'security' in the Securities Act of 1933 and the Securities Exchange Act of 1934."
+    },
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The announcement introduces new rules titled 'Regulation Crypto Assets' to establish a framework for certain investment contracts involving crypto assets."
+    }
+   ],
+   "action": "Review the proposed 'Regulation Crypto Assets' release and evaluate the impact of the new registration exemptions and safe harbor conditions on crypto asset offerings before the 60-day public comment period closes.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-bans-senior-manager-lack-honesty-integrity",
+   "title": "FCA bans senior manager for lack of honesty and integrity",
+   "source": "FCA",
+   "published_date": "2026-08-18T09:01:00+00:00",
+   "summary": "The FCA has banned former senior manager Howard Roland Duckett from the financial services industry for a severe lack of honesty and integrity following a 10-year director disqualification. Additionally, the FCA restricted Beauforce Corporation Limited from conducting regulated activities and ordered it to cease accepting consumer funds as of November 2025. Consumers with existing debt management plans are advised to stop payments and seek alternative support through MoneyHelper.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "高",
+   "deadline": "2025-11-20",
+   "frameworks": [],
+   "action": "Ensure compliance with the FCA's ban on Howard Roland Duckett and verify that no ongoing business involves Beauforce Corporation Limited following its restriction from regulated activities.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-expands-global-presence-new-attaches-india-uae",
+   "title": "FCA expands global presence with new attachés in India and UAE",
+   "source": "FCA",
+   "published_date": "2026-08-17T08:00:00+00:00",
+   "summary": "The FCA has appointed Sabina Saini and Darine Obeid as new financial services attachés for India and the UAE. This expansion strengthens the FCA's global network to support international cooperation, exports, and investment into the UK. The new attachés bring extensive experience in financial regulation, operational risk, supervision, and fintech.",
+   "business_area": "監管政策與合規流程",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-75-sec-charges-boiler-room-operator-three-entities-defrauding-retail-investors-74-million-pre-ipo",
+   "title": "SEC Charges Boiler Room Operator and Three Entities with Defrauding Retail Investors in $74 Million Pre-IPO Investment Scam",
+   "source": "SEC",
+   "published_date": "2026-08-14T20:16:34+00:00",
+   "summary": "The SEC charged Andrew Spaventa and three entities with defrauding retail investors through a $74 million pre-IPO investment scam involving unregistered securities and hidden fees. Defendants used high-pressure sales tactics and cold-calling agents to raise funds while concealing markups that averaged approximately 46% higher than actual purchase prices. The SEC's complaint filed in federal court seeks permanent injunctions, disgorgement, civil penalties, and conduct-based injunctions against the defendants.",
+   "business_area": "市場行為與交易誠信",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The complaint charges defendants with violating the antifraud and securities registration provisions of the Securities Act of 1933 in connection with unregistered securities offerings of private funds."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The complaint charges defendants with violating the broker-dealer registration provisions of the Securities Exchange Act of 1934."
+    },
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The complaint charges violations of the Investment Advisers Act of 1940 arising from the management and operation of the private funds."
+    }
+   ],
+   "action": "Review private fund distribution, pre-IPO investment marketing materials, and fee disclosure practices to ensure strict compliance with Securities Act registration and antifraud provisions.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/ceo-banned-false-misleading-statements-attempt-buy-bank-football-club",
+   "title": "CEO banned for false and misleading statements made in attempt to buy bank and football club",
+   "source": "FCA",
+   "published_date": "2026-08-14T09:46:00+00:00",
+   "summary": "The FCA has fined and banned former financial services executives Paul Taylor and Esmeralda Toni for making false and misleading statements. The individuals acted dishonestly over an extended period during attempted acquisitions of a UK bank and a football club. The enforcement action highlights the critical regulatory requirement for honesty and integrity within the financial sector.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review internal controls and senior management vetting procedures to ensure integrity in regulatory submissions and acquisitions.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-74-sec-charges-toms-river-trio-connection-alleged-47-million-fraud-targeting-orthodox-jewish",
+   "title": "SEC Charges Toms River Trio in Connection with Alleged $47 Million Fraud Targeting Orthodox Jewish Communities",
+   "source": "SEC",
+   "published_date": "2026-08-13T20:32:19+00:00",
+   "summary": "The SEC charged three individuals in connection with an alleged $47 million affinity fraud targeting Orthodox Jewish communities. The defendants raised funds through false promises of short-term business loan investments while misappropriating millions for personal use and Ponzi-like payments. The SEC is seeking permanent injunctions, disgorgement, civil penalties, and conduct-based injunctions against the defendants.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Exchange Act",
+     "reason": "The complaint explicitly charges Goldman and Odes with violations of the broker registration provisions of the Securities Exchange Act of 1934."
+    }
+   ],
+   "action": "Review broker-dealer registration and solicitation compliance procedures to ensure unregistered individuals are not recruiting investors or negotiating terms.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/blogs/t1-settlement-are-firms-ready-2027",
+   "title": "T+1 Settlement: are firms ready for 2027?",
+   "source": "FCA",
+   "published_date": "2026-08-13T11:00:00+00:00",
+   "summary": "The UK is transitioning to a T+1 securities settlement cycle on October 11, 2027, requiring market participants to accelerate post-trade processes and automate operations. While many firms are progressing well, the regulator warns that underprepared participants and third-party providers must urgently remediate gaps or face regulatory action. Firms are expected to finalize testing plans, monitor UK Accelerated Settlement Taskforce recommendations, and ensure robust client outreach to avoid systemic risks.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "高",
+   "deadline": "2027-10-11",
+   "frameworks": [],
+   "action": "Market participants must finalize testing plans and accelerate post-trade automation to meet the T+1 settlement transition deadline on 2027-10-11.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-73-sec-charges-private-fund-adviser-adit-ventures-management-its-ceo-affiliated-general-partners",
+   "title": "SEC Charges Private Fund Adviser Adit Ventures Management, Its CEO and Affiliated General Partners in Alleged Fraud",
+   "source": "SEC",
+   "published_date": "2026-08-10T18:00:00+00:00",
+   "summary": "The SEC charged Adit Ventures Management, its CEO, and affiliated general partners with allegedly defrauding investors in pre-IPO shares. The defendants misappropriated client assets, charged millions in undisclosed fees, and failed to register as an investment adviser. Without admitting the allegations, the defendants consented to a judgment imposing permanent injunctions, monetary penalties, and an associational bar.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The complaint charges Munson, Adit Ventures Management, and the General Partners with violating the antifraud provisions of the Securities Act of 1933."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The complaint charges Munson, Adit Ventures Management, and the General Partners with violating the antifraud provisions of the Securities Exchange Act of 1934."
+    },
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The complaint charges the defendants with violating the Investment Advisers Act of 1940, including failure to register as an investment adviser."
+    }
+   ],
+   "action": "Review private fund valuation, disclosure, and principal transaction practices to ensure compliance with the antifraud and registration provisions of the Advisers Act and federal securities laws.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-boosts-support-innovative-firms-scale-grow",
+   "title": "FCA boosts support for innovative firms as they scale and grow",
+   "source": "FCA",
+   "published_date": "2026-08-10T10:30:00+00:00",
+   "summary": "The FCA's Scale-up Unit has welcomed five fast-growing, FCA-regulated firms to receive tailored regulatory support for sustainable innovation and growth. Insights from a recent pilot highlight that early investment in governance, risk management, and controls is crucial for managing rapid expansion. The initiative aims to reinforce the UK as a premier destination for scaling financial services businesses by helping them navigate regulation with confidence.",
+   "business_area": "監管政策與合規流程",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/statements/fca-applying-increased-scrutiny-annex-1-firms",
+   "title": "FCA applying increased scrutiny to Annex 1 firms",
+   "source": "FCA",
+   "published_date": "2026-08-07T11:03:00+00:00",
+   "summary": "The FCA is applying increased scrutiny to Annex 1 firms due to concerns regarding financial crime risks and inadequate AML controls. Unregulated lenders, safe custody providers, money brokers, and financial leasing companies must ensure proper AML registration and tailored compliance procedures. Additionally, the FCA has issued information requests to approximately 900 Annex 1 firms to better understand their business models and risk profiles.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "AML (MLRs / BSA)",
+     "reason": "The text states that 'Firms including unregulated lenders, safe custody providers, money brokers and financial leasing companies, need to be registered with us for anti-money laundering purposes' and must demonstrate compliance with the money laundering regulations."
+    }
+   ],
+   "action": "Annex 1 firms must review their anti-money laundering controls to ensure they are tailored rather than relying on off-the-shelf parent company procedures, and ensure proper registration status.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/blogs/making-compliance-simpler-opening-fca-handbook-new-api",
+   "title": "Making compliance simpler: opening up the FCA Handbook through our new API",
+   "source": "FCA",
+   "published_date": "2026-08-06T11:25:00+00:00",
+   "summary": "The Financial Conduct Authority (FCA) is launching a new Handbook Application Programming Interface (API) to provide firms with structured, machine-readable access to regulatory rules and guidance. This tool aims to reduce the burden of compliance by allowing software systems to integrate regulatory updates directly into their internal tools or third-party RegTech solutions. While optional, the API offers firms and technology providers a flexible way to streamline compliance processes and manage regulatory changes more efficiently.",
+   "business_area": "監管政策與合規流程",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-72-sec-establishes-financial-reporting-accounting-unit-enforcement-division",
+   "title": "SEC Establishes Financial Reporting and Accounting Unit in Enforcement Division",
+   "source": "SEC",
+   "published_date": "2026-08-05T18:30:00+00:00",
+   "summary": "The SEC announced the establishment of a new specialized Financial Reporting and Accounting Unit within its Division of Enforcement. This unit is dedicated to pursuing accounting and financial reporting fraud cases as well as misconduct in the accounting and auditing sectors. Staffed by specialized attorneys and accountants, the unit will collaborate across divisions to enforce federal securities laws.",
+   "business_area": "審慎監管與資本要求",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only as the announcement details an internal organizational change within the SEC Division of Enforcement.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-simplifies-ipo-rules-support-uk-listings",
+   "title": "FCA simplifies IPO rules to support UK listings",
+   "source": "FCA",
+   "published_date": "2026-08-05T11:32:00+00:00",
+   "summary": "The FCA has implemented reforms to simplify IPO rules and enhance the competitiveness of UK listings. These changes reduce execution risk and compliance costs for issuers by removing the 7-day waiting period for connected research. The updates aim to support economic growth and investment while maintaining market integrity.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review the revised IPO rules regarding the removal of the 7-day waiting period and updated information-sharing requirements to assess impacts on upcoming client listings.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/tribunal-upholds-fca-ban-pair-pensions-advice",
+   "title": "Tribunal upholds FCA ban on pair involved in pension transfer advice and reduces fines",
+   "source": "FCA",
+   "published_date": "2026-08-04T11:13:00+00:00",
+   "summary": "The Upper Tribunal upheld the FCA's decision to ban Richard Fenech and Heather Dunne from the financial services industry for dishonesty and unsuitable pension transfer advice. The Tribunal found that Dunne provided unsuitable advice to clients regarding defined benefit pension schemes, while Fenech failed to properly oversee her work. Consequently, the Tribunal reduced the financial penalties for both individuals to £41,230 and £16,046, respectively.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review oversight mechanisms and pension transfer advice standards to ensure compliance with FCA fitness and propriety requirements.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-finalises-rules-cut-firms-transaction-reporting-costs-over-100m-year",
+   "title": "FCA finalises rules to cut firms' transaction reporting costs by over £100m a year",
+   "source": "FCA",
+   "published_date": "2026-08-03T10:32:00+00:00",
+   "summary": "The FCA has finalised new rules to streamline transaction reporting requirements, aiming to reduce firms' regulatory burdens and costs by over £100 million annually. These changes eliminate duplicative reporting while ensuring the regulator continues to receive accurate, high-quality data to detect market abuse. The updated requirements will officially take effect on April 3, 2028, with a flexible supervisory approach allowing early adopters to implement changes sooner.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "高",
+   "deadline": "2028-04-03",
+   "frameworks": [
+    {
+     "name": "MiFID II / UK MiFIR",
+     "reason": "The text details final rules by the FCA to cut firms' transaction reporting costs and streamline reporting requirements that support market oversight and post-trade reporting."
+    }
+   ],
+   "action": "Review and update transaction reporting systems to align with the streamlined FCA requirements before 2028-04-03 while assessing opportunities for earlier implementation under the flexible supervisory approach.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-advances-package-equity-market-transparency-reforms",
+   "title": "FCA advances package of equity market transparency reforms",
+   "source": "FCA",
+   "published_date": "2026-07-31T07:39:00+00:00",
+   "summary": "The FCA has published a reform package to improve equity market transparency, featuring a framework for a future equity consolidated tape to be delivered within 18 months. It also consults on targeted market structure reforms under CP26/30 and CP26/31, and introduces an interim market activity reporting tool for shares. Feedback on the consultations is invited until 16 October 2026.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "高",
+   "deadline": "2026-10-16",
+   "frameworks": [],
+   "action": "Review the consultation papers CP26/30 and CP26/31 and submit feedback to the FCA regarding equity market transparency reforms by 2026-10-16.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/trial-date-set-individual-charged-illegal-promotions",
+   "title": "Trial date set for individual charged with illegal promotions",
+   "source": "FCA",
+   "published_date": "2026-07-30T16:36:00+00:00",
+   "summary": "Lucy Beck appeared at Southwark Crown Court on July 30, 2026, pleading not guilty to charges of unauthorized financial promotions involving Foreign Exchange Contracts for Difference on social media. The court has scheduled her trial for June 12, 2028, under sections 21 and 25 of the Financial Services and Markets Act 2000. This enforcement action highlights ongoing regulatory scrutiny regarding illegal promotional activities by unauthorized individuals.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": "2028-06-12",
+   "frameworks": [],
+   "action": "Monitor the trial proceedings starting on 2028-06-12 to assess legal precedents regarding unauthorised financial promotions via social media under FSMA sections 21 and 25.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-71-sec-announces-continuation-small-business-advisory-committee-meeting",
+   "title": "SEC Announces Continuation of Small Business Advisory Committee Meeting",
+   "source": "SEC",
+   "published_date": "2026-07-30T13:53:38+00:00",
+   "summary": "The Securities and Exchange Commission announced that the Small Business Capital Formation Advisory Committee meeting held on July 21, 2026, will reconvene virtually on August 6, 2026. The committee will continue exploring ways to modernize public market access and encourage IPOs and small public company capital formation. Discussions will include policy recommendations aimed at reducing regulatory friction in public securities markets.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/blue-motor-finance-limited-enters-administration",
+   "title": "Blue Motor Finance Limited enters administration",
+   "source": "FCA",
+   "published_date": "2026-07-30T13:33:00+00:00",
+   "summary": "Blue Motor Finance Limited has entered administration, with joint administrators from Ernst & Young LLP appointed to manage the firm. The firm has ceased new lending, though outstanding loan agreements remain in place and must continue to be serviced by customers as usual. The regulator is engaging with the administrators to secure the best possible outcomes for customers owed compensation, although full recovery is unlikely.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Monitor administration updates regarding redress obligations and complaint handling procedures under the motor finance compensation scheme.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-censures-equity-growth-securities-limited",
+   "title": "FCA censures Equity for Growth (Securities) Limited",
+   "source": "FCA",
+   "published_date": "2026-07-30T10:31:00+00:00",
+   "summary": "The FCA censured Equity for Growth (Securities) Limited (EFG) for approving unfair, unclear, and misleading financial promotions regarding minibonds. The promotions failed to disclose high commission fees deducted from investors' money, preventing fully informed investment decisions. Following an FCA petition, the High Court ordered EFG to be wound up on March 25, 2026, due to insolvency, with investor claims now handled by the FSCS.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": "2026-03-25",
+   "frameworks": [],
+   "action": "Review current financial promotion approval processes and appointed representative oversight to ensure transparent disclosure of commission fees and charges before 2026-03-25.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/blogs/strengthening-resilience-across-increasingly-interconnected-financial-system",
+   "title": "Strengthening resilience across an increasingly interconnected financial system",
+   "source": "FCA",
+   "published_date": "2026-07-28T12:02:00+00:00",
+   "summary": "The UK regulators have launched a new oversight regime designating the first critical third parties (CTPs) to directly monitor technology, data, and operational service providers. This regime addresses system-level risks where multiple financial firms rely on common service providers to enhance operational resilience and incident coordination. Firms and designated CTPs must continue managing dependencies, engaging openly, and participating in resilience testing and information sharing.",
+   "business_area": "審慎監管與資本要求",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Firms should review their operational resilience frameworks and ongoing third-party risk management strategies to account for the newly launched critical third parties oversight regime.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-70-small-business-forums-report-congress-highlights-recommendations-improve-capital-raising-policy",
+   "title": "Small Business Forum’s Report to Congress Highlights Recommendations to Improve Capital-Raising Policy",
+   "source": "SEC",
+   "published_date": "2026-07-27T19:59:17+00:00",
+   "summary": "The SEC released a report to Congress highlighting policy recommendations from its 45th Annual Government-Business Forum on Small Business Capital Formation. The report summarizes forum proceedings, participant recommendations for capital-raising framework changes, and the Commission's responses. It aims to improve policies affecting how entrepreneurs, small businesses, and smaller public companies raise capital.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-secures-majority-victims-money-back-convicted-fraudster",
+   "title": "FCA secures majority of victims’ money back from convicted fraudster",
+   "source": "FCA",
+   "published_date": "2026-07-27T15:30:00+00:00",
+   "summary": "The FCA secured a confiscation order requiring convicted fraudster John Burford to pay over £655,000 following an unauthorized investment scheme. The recovered funds, representing nearly all of the originally invested money, will be returned directly to the victims. Mr Burford faces an additional default prison sentence of up to five years if he fails to pay the order within the specified timeframe.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/fca-bank-appoint-members-their-transaction-post-trade-reporting-harmonisation-taskforce",
+   "title": "FCA and Bank appoint members to their Transaction and Post-trade Reporting Harmonisation Taskforce",
+   "source": "FCA",
+   "published_date": "2026-07-27T12:01:00+00:00",
+   "summary": "The FCA and the Bank of England have appointed members to their Transaction and Post-trade Reporting Harmonisation Taskforce. The taskforce consists of three working groups focused on policy, strategy, and architecture. These groups will help shape the long-term approach to harmonising reporting requirements across UK MiFIR, UK EMIR, and UK SFTR.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "MiFID II / UK MiFIR",
+     "reason": "The announcement states the taskforce will inform the long-term approach to harmonising transaction and post-trade reporting requirements across UK Markets in Financial Instruments Regulation (UK MiFIR)."
+    }
+   ],
+   "action": "No action required; for awareness only as the taskforce establishes its long-term harmonisation approach across UK MiFIR, UK EMIR, and UK SFTR.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-69-sec-announces-roundtable-preparations-24-hour-trading",
+   "title": "SEC Announces Roundtable on Preparations for 24-Hour Trading",
+   "source": "SEC",
+   "published_date": "2026-07-23T15:04:00+00:00",
+   "summary": "The SEC announced a public roundtable scheduled for September 17, 2026, to discuss the transition toward 24-hour trading in U.S. equity markets. Discussions will focus on overnight trading preparations, operational resiliency, and balancing continuous trading with investor protections. The public is invited to attend, view the live stream, and submit comments referencing File Number 4-913.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "中",
+   "deadline": "2026-09-17",
+   "frameworks": [],
+   "action": "Monitor the SEC roundtable on September 17, 2026, and review operational capabilities for supporting potential 24-hour U.S. equity trading.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-68-sec-announces-departure-principal-deputy-director-enforcement-sam-waldon",
+   "title": "SEC Announces Departure of Principal Deputy Director of Enforcement Sam Waldon",
+   "source": "SEC",
+   "published_date": "2026-07-22T13:45:25+00:00",
+   "summary": "The Securities and Exchange Commission announced that Sam Waldon, Principal Deputy Director of the Division of Enforcement, will depart the agency on July 31, 2026. He will be succeeded by Osman Nawaz, who previously served with the SEC in various roles. Waldon's departure marks the end of more than 14 years of service at the agency.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-67-sec-proposes-new-e-delivery-approach-make-information-more-readily-accessible-useful-investors",
+   "title": "SEC Proposes New E-Delivery Approach to Make Information More Readily Accessible and Useful for Investors",
+   "source": "SEC",
+   "published_date": "2026-07-16T12:57:00+00:00",
+   "summary": "The SEC proposed Regulation E-Delivery to allow issuers, broker-dealers, and investment advisers to use electronic delivery as the default method for satisfying information delivery requirements. The proposal aims to modernize communications and reduce costs while preserving investors' ability to receive paper documents upon request or opt out. The public comment period will remain open for 60 days following publication in the Federal Register.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text states the proposed rule applies to Form ADV Part 2 Brochures and fund annual and semi-annual shareholder reports."
+    },
+    {
+     "name": "Securities Act",
+     "reason": "The text states the proposal covers the delivery of prospectuses for funds and other issuers under federal securities laws."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The text states the rule applies to broker-dealers and covers proxy statements and trade confirmations under federal securities laws."
+    }
+   ],
+   "action": "Review the proposed Regulation E-Delivery requirements for electronic transmission of prospectuses, trade confirmations, and Form CRS disclosures to prepare feedback during the 60-day comment period.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-66-sec-office-municipal-securities-updates-faqs-registration-municipal-advisors",
+   "title": "SEC Office of Municipal Securities Updates FAQs for Registration of Municipal Advisors",
+   "source": "SEC",
+   "published_date": "2026-07-10T16:00:32+00:00",
+   "summary": "The SEC's Office of Municipal Securities has updated its FAQs on municipal advisor registration to provide greater clarity on registration and recordkeeping requirements. The update aims to help municipal advisors, including those in the P3 market, understand and comply with transparency and accountability regulations. It also introduces a new FAQ detailing the initial registration process with the SEC and MSRB for prospective advisors and sole proprietors.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Exchange Act",
+     "reason": "The update provides clarity on municipal advisor registration and recordkeeping requirements established under the Securities Exchange Act of 1934."
+    }
+   ],
+   "action": "Review the updated SEC municipal advisor registration FAQs to ensure all ongoing advisory activities and recordkeeping practices comply with established standards.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-65-sec-host-virtual-roundtable-modernizing-ipos-expanding-access-public-markets",
+   "title": "SEC to Host Virtual Roundtable on Modernizing IPOs and Expanding Access to Public Markets",
+   "source": "SEC",
+   "published_date": "2026-07-08T17:54:26+00:00",
+   "summary": "The SEC's Office of the Advocate for Small Business Capital Formation and the Division of Corporation Finance will host a livestreamed roundtable on July 13, 2026. The discussion will re-examine the IPO process and explore ways to expand access to public capital markets for companies of all sizes. Industry practitioners and professionals will share insights on regulatory solutions, proposed rule changes, and strategies for maintaining public company status.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The announcement states the roundtable will focus on re-examining the IPO process and how companies access public capital markets under SEC purview."
+    }
+   ],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-64-sec-small-business-advisory-committee-explore-modernizing-market-access",
+   "title": "SEC Small Business Advisory Committee to Explore Modernizing Market Access",
+   "source": "SEC",
+   "published_date": "2026-07-08T13:01:01+00:00",
+   "summary": "The SEC Small Business Capital Formation Advisory Committee announced a public meeting scheduled for July 21, 2026. Committee members will discuss potential regulatory reforms and modernization of the IPO process to encourage small public company capital formation. Discussions will also cover recent SEC rulemakings aimed at reducing regulatory friction in public securities markets.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Monitor the proceedings and recommendations of the SEC Small Business Capital Formation Advisory Committee meeting on July 21, 2026, for potential future reforms regarding public market access and IPO processes.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-63-sec-forms-new-retail-fraud-working-group",
+   "title": "SEC Forms New Retail Fraud Working Group",
+   "source": "SEC",
+   "published_date": "2026-07-07T14:39:57+00:00",
+   "summary": "The SEC announced the creation of the Retail Fraud Working Group to strengthen enforcement efforts against fraud targeting everyday investors. The group will focus on proactive case generation, coordination with regulatory partners, and investor education. It aims to leverage agency resources to identify offering frauds, pump-and-dump schemes, and breaches of duties by investment advisers and broker-dealers.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Investment advisers and broker-dealers should review their retail sales practices, marketing disclosures, and duty-of-care frameworks to align with the SEC's enhanced enforcement focus on retail investor protection.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-62-sec-names-paul-knight-chief-operating-officer",
+   "title": "SEC Names Paul Knight as Chief Operating Officer",
+   "source": "SEC",
+   "published_date": "2026-07-06T19:10:00+00:00",
+   "summary": "The Securities and Exchange Commission announced the appointment of Paul Knight as its new Chief Operating Officer. Mr. Knight will oversee the agency's operational and administrative functions, including human resources, financial management, and data operations. He returns to the SEC after holding leadership roles at JPMorgan Chase and serving at the U.S. Department of the Treasury.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-61-sec-publishes-updated-market-statistics-highlighting-increase-ipos-proceeds-raised",
+   "title": "SEC Publishes Updated Market Statistics, Highlighting Increase in IPOs and Proceeds Raised",
+   "source": "SEC",
+   "published_date": "2026-07-01T12:47:58+00:00",
+   "summary": "The SEC's Division of Economic and Risk Analysis published updated market statistics and interactive data visualizations covering U.S. capital markets. The release highlights year-over-year growth in IPOs and follow-on offerings for the first quarter of 2026. These newly updated resources provide the public with insights into various market segments, including asset-backed securities and municipal advisors.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-60-sec-seeks-public-comment-novel-exchange-traded-funds",
+   "title": "SEC Seeks Public Comment on Novel Exchange-Traded Funds",
+   "source": "SEC",
+   "published_date": "2026-06-30T14:15:05+00:00",
+   "summary": "The SEC issued a request for public comment on exchange-traded funds seeking to invest in innovative asset classes or engage in novel investment strategies. The initiative aims to facilitate market innovation while protecting investors, maintaining fair and efficient markets, and facilitating capital formation. The public comment period will remain open for 60 days following publication in the Federal Register.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": "60 days following publication in the Federal Register",
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text explicitly states the Commission requests comment with respect to the status of certain novel ETFs as investment companies and their regulation."
+    }
+   ],
+   "action": "Monitor the Federal Register for the publication of the SEC request for comment on novel ETFs to prepare industry feedback within the 60-day window.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-59-sec-cftc-seek-public-comment-harmonization-portfolio-margining-frameworks",
+   "title": "SEC, CFTC Seek Public Comment on the Harmonization of Portfolio Margining Frameworks",
+   "source": "SEC",
+   "published_date": "2026-06-26T12:58:32+00:00",
+   "summary": "The SEC and CFTC have issued a joint request for public comment on potential approaches to further harmonize portfolio margining frameworks across securities, swaps, and futures. The initiative aims to improve risk management efficiency, reduce market fragmentation, and enhance customer protections. The public comment period will remain open for 60 days following its publication in the Federal Register.",
+   "business_area": "審慎監管與資本要求",
+   "risk_level": "中",
+   "deadline": "60 days following publication in the Federal Register",
+   "frameworks": [],
+   "action": "Review the joint request for comment on portfolio margining and prepare feedback on risk management and cross-margining efficiencies before the comment period closes.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-58-sec-appoints-kathleen-hutchinson-director-office-international-affairs",
+   "title": "SEC Appoints Kathleen Hutchinson as Director of Office of International Affairs",
+   "source": "SEC",
+   "published_date": "2026-06-24T18:32:00+00:00",
+   "summary": "The Securities and Exchange Commission has appointed Kathleen M. Hutchinson as Director of the Office of International Affairs on a permanent basis. OIA advises the Commission on international policy, coordinates cross-border enforcement, and provides technical assistance. Hutchinson has served as Acting Director since January 2025 and has a long tenure at the SEC spanning over two decades.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-57-sec-cftc-seek-public-comment-further-clarify-harmonize-derivatives-product-definitions",
+   "title": "SEC, CFTC Seek Public Comment to Further Clarify and Harmonize Derivatives Product Definitions",
+   "source": "SEC",
+   "published_date": "2026-06-18T18:42:47+00:00",
+   "summary": "The SEC and CFTC issued a joint request for public comment to update, clarify, and harmonize derivatives product definitions and interpretive issues. The initiative aims to address longstanding ambiguities within Title VII of Dodd-Frank and reflect evolving market structures. The public comment period will remain open for 60 days following publication in the Federal Register.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": "60 days following publication in the Federal Register",
+   "frameworks": [
+    {
+     "name": "Dodd-Frank",
+     "reason": "The text states the request presents an opportunity to address longstanding ambiguities within Title VII of Dodd-Frank."
+    }
+   ],
+   "action": "Review the joint request for comment on derivatives product definitions and coordinate with relevant business units to submit industry feedback before the comment period closes.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-56-sec-cftc-seek-public-input-data-reporting-frameworks-security-based-swap-swap-markets",
+   "title": "SEC, CFTC Seek Public Input on Data Reporting Frameworks for Security-Based Swap and Swap Markets",
+   "source": "SEC",
+   "published_date": "2026-06-18T18:17:55+00:00",
+   "summary": "The SEC and CFTC issued a joint request for public comment to harmonize, modernize, and streamline data reporting requirements for security-based swap and swap markets. The agencies aim to reduce operational complexity, cut red tape, and enhance data quality while maintaining regulatory oversight. The public comment period will remain open for 60 days following publication in the Federal Register.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "中",
+   "deadline": "60 days following publication in the Federal Register",
+   "frameworks": [
+    {
+     "name": "Dodd-Frank",
+     "reason": "The text states the agencies are seeking input while preserving distinct statutory mandates under the Dodd-Frank Act regarding security-based swap and swap data reporting."
+    }
+   ],
+   "action": "Review the joint request for comment on security-based swap and swap data reporting frameworks and prepare feedback addressing operational and technological implications before the 60-day comment period expires.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-55-sec-appoints-john-moses-director-office-investor-education-assistance",
+   "title": "SEC Appoints John Moses as Director of the Office of Investor Education and Assistance",
+   "source": "SEC",
+   "published_date": "2026-06-12T16:30:00+00:00",
+   "summary": "The Securities and Exchange Commission has announced the appointment of John Moses as the permanent Director of the Office of Investor Education and Assistance. Mr. Moses, who has served as Acting Director and held various roles within the agency since 2016, will lead initiatives to provide resources and protect investors against investment fraud. SEC Chairman Paul S. Atkins praised Moses's communication skills and dedication to investor outreach and education.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-54-sec-proposes-rescission-regulation-nms-rules-611-610e",
+   "title": "SEC Proposes Rescission of Regulation NMS Rules 611 and 610(e)",
+   "source": "SEC",
+   "published_date": "2026-06-11T14:55:00+00:00",
+   "summary": "The Securities and Exchange Commission has proposed amendments to rescind Rules 611 and 610(e) of Regulation NMS. The proposal aims to simplify market structure, reduce costs, and foster competition by removing outdated regulations. A 60-day public comment period will begin following publication in the Federal Register.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": "60 days following Federal Register publication",
+   "frameworks": [
+    {
+     "name": "Exchange Act",
+     "reason": "The text proposes amendments to Regulation NMS Rules 611 and 610(e) promulgated under the Exchange Act."
+    }
+   ],
+   "action": "Review the SEC proposing release on the rescission of Regulation NMS Rules 611 and 610(e) and prepare public comments within the 60-day comment period following Federal Register publication.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-53-sec-establishes-joint-data-standards-required-under-financial-data-transparency-act-2022",
+   "title": "SEC Establishes Joint Data Standards as Required Under the Financial Data Transparency Act of 2022",
+   "source": "SEC",
+   "published_date": "2026-06-08T14:36:00+00:00",
+   "summary": "The SEC and other financial regulatory agencies established joint data standards under the Financial Data Transparency Act of 2022. These standards promote interoperability and consistent data collection by setting common identifiers and principles-based formats. The initiative aims to ease reporting burdens for financial institutions and improve data accessibility for investors.",
+   "business_area": "交易申報與市場基礎設施",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Monitor upcoming agency-specific rulemakings under the Financial Data Transparency Act to align internal data systems with the new joint data standards.",
+   "status": "todo"
+  }
+ ]
+}
