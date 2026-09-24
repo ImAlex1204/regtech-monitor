@@ -1,6 +1,45 @@
 {
- "last_fetched_at": "2026-09-23T12:36:59.158420+00:00",
+ "last_fetched_at": "2026-09-24T12:35:00.922304+00:00",
  "announcements": [
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-93-sec-publishes-updated-market-statistics-highlighting-increase-ipos-proceeds-raised",
+   "title": "SEC Publishes Updated Market Statistics, Highlighting Increase in IPOs and Proceeds Raised",
+   "source": "SEC",
+   "published_date": "2026-09-23T18:27:00+00:00",
+   "summary": "The SEC's Division of Economic and Risk Analysis published updated U.S. capital markets statistics and interactive data visualizations on September 23, 2026. The report highlights year-over-year growth in initial public offerings and follow-on registered offerings for the first half of 2026. The release aims to provide transparent data supporting resilient capital formation and market oversight.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-92-sec-charges-south-florida-resident-his-company-alleged-investment-scheme-defrauding-law-enforcement",
+   "title": "SEC Charges South Florida Resident and His Company for Alleged Investment Scheme Defrauding Law Enforcement",
+   "source": "SEC",
+   "published_date": "2026-09-23T16:00:00+00:00",
+   "summary": "The SEC charged CMI Capital LLC and its founder Michael D. Williams for an alleged fraudulent investment scheme targeting law enforcement officers. The defendants allegedly raised approximately $860,000 and misappropriated $384,000 for personal expenses. They have agreed to a bifurcated settlement subject to court approval, including permanent injunctions and civil penalties.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The complaint charges Williams and CMI Capital with violating antifraud and registration provisions of the Securities Act of 1933."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The complaint charges the defendants with violating antifraud provisions of the Securities Exchange Act of 1934."
+    },
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The complaint charges the defendants with violating antifraud provisions of the Investment Advisers Act of 1940."
+    }
+   ],
+   "action": "Review private fund marketing and anti-fraud controls to ensure compliance with the Securities Act, Exchange Act, and Advisers Act regarding investor disclosures and fund valuations.",
+   "status": "todo"
+  },
   {
    "url": "https://www.fca.org.uk/news/speeches/building-next-generation-market-infrastructure",
    "title": "Building the next generation of market infrastructure",
