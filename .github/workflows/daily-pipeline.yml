@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Run backend tests
+        run: python3 -m unittest discover tests
+
       - name: Run pipeline
         env:
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'gemini' }}

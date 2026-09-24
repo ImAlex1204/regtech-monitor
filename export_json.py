@@ -16,7 +16,8 @@ COLUMNS = [
 ]
 
 
-def export(out_path: Path = OUT_PATH) -> int:
+def load_payload() -> dict:
+    """匯出檔與本機 api.py 共用同一份資料形狀，前端兩種模式讀到的東西完全一致。"""
     conn = get_connection()
     rows = conn.execute(
         f"SELECT {', '.join(COLUMNS)} FROM announcements ORDER BY published_date DESC"
@@ -30,13 +31,17 @@ def export(out_path: Path = OUT_PATH) -> int:
         item["frameworks"] = json.loads(item["frameworks"]) if item["frameworks"] else []
         announcements.append(item)
 
-    payload = {
+    return {
         # 不用「匯出當下的時間」：那樣沒有新公告時 JSON 也會變，排程每天都會多一個空 commit
         "last_fetched_at": last_fetched_at,
         "announcements": announcements,
     }
+
+
+def export(out_path: Path = OUT_PATH) -> int:
+    payload = load_payload()
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n")
-    return len(announcements)
+    return len(payload["announcements"])
 
 
 if __name__ == "__main__":

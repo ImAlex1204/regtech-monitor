@@ -2,6 +2,6 @@ requests
 feedparser
 beautifulsoup4
 google-genai
-streamlit
-altair
 python-dotenv
+fastapi
+uvicorn

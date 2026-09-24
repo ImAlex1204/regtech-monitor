@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* 深色玻璃風格（沿用 FinGPT 的色彩 token，再加一層有色光暈讓 backdrop-blur 看得出來）。
+   只做深色版：這是刻意的產品風格（OKX / Robinhood 類的交易介面），不是忘了做淺色。 */
+@theme {
+  --color-bg: #070a10;
+  --color-ink: #e8ebf2;
+  --color-ink-2: #a3acbe;
+  --color-ink-3: #6b7489;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-2: rgba(255, 255, 255, 0.14);
+  --color-accent: #5b9dff;
+
+  /* 監管機構類別色：dataviz 驗證過的深色版 slot 1 / 2（CVD ΔE 26.8、對比 ≥ 3:1） */
+  --color-fca: #3987e5;
+  --color-sec: #d95926;
+
+  /* 風險等級用狀態色（跟類別色刻意分開，永遠搭配文字標籤，不單靠顏色） */
+  --color-risk-high: #f06363;
+  --color-risk-mid: #fab219;
+  --color-risk-low: #8b95a8;
+
+  --font-sans: "Inter", "PingFang TC", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html, body, #root { min-height: 100%; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 固定在畫面後方的光暈層：玻璃面板的模糊需要背後有顏色變化才看得出質感 */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 12% -8%, rgba(57, 135, 229, 0.22), transparent 62%),
+    radial-gradient(760px 480px at 92% 6%, rgba(217, 89, 38, 0.14), transparent 60%),
+    radial-gradient(820px 620px at 70% 105%, rgba(120, 90, 255, 0.14), transparent 60%),
+    linear-gradient(180deg, #070a10 0%, #0a0e17 100%);
+}
+.aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+/* 放進 components 層：Tailwind 的工具類別（例如 sm:hidden）才能覆蓋這些預設樣式 */
+@layer components {
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+  border: 1px solid var(--color-line);
+  border-radius: 18px;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+/* 不支援 backdrop-filter 時退回較不透明的底色，文字對比才不會掉 */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: rgba(18, 23, 34, 0.94); }
+}
+
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.glow-fca { text-shadow: 0 0 18px rgba(57, 135, 229, 0.55); }
+.glow-sec { text-shadow: 0 0 18px rgba(217, 89, 38, 0.5); }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 12px;
+  color: var(--color-ink-2);
+  background: rgba(255, 255, 255, 0.03);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--color-line-2); color: var(--color-ink); }
+.chip[aria-pressed="true"] {
+  color: var(--color-ink);
+  border-color: rgba(91, 157, 255, 0.55);
+  background: rgba(91, 157, 255, 0.14);
+}
+.chip:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
