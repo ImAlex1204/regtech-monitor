@@ -1,6 +1,7 @@
 """LLM 摘要分類層——上層只呼叫 summarize_announcement，不需要知道背後用哪家供應商。"""
 import json
 import os
+from datetime import date
 
 # 固定分類清單。原本讓 LLM 自由生成 business_area 導致每篇幾乎都不同分類，
 # 篩選器形同虛設；改成強制單選讓分類真的有篩選意義。
@@ -76,7 +77,24 @@ def summarize_announcement(title: str, text: str) -> dict | None:
         raise ValueError(f"未知的 LLM_PROVIDER: {provider}")
     if result is not None:
         result["frameworks"] = normalize_frameworks(result.get("frameworks"))
+        result["deadline"] = normalize_deadline(result.get("deadline"))
     return result
+
+
+def normalize_deadline(raw) -> str | None:
+    """只留下真實存在的 YYYY-MM-DD 日期，其他一律當作沒有期限。
+
+    prompt 已經要求「相對時間一律回傳 null」，但 LLM 並非 100% 遵守
+    （曾經寫進 5 筆 "60 days following publication in the Federal Register"），
+    所以寫入資料庫前在程式端再擋一次，不讓髒資料進資料庫、只靠前端顯示時過濾。
+    """
+    if not isinstance(raw, str):
+        return None
+    value = raw.strip()
+    try:
+        return value if date.fromisoformat(value).isoformat() == value else None
+    except ValueError:
+        return None
 
 
 def normalize_frameworks(raw) -> list[dict]:

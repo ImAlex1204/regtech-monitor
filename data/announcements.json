@@ -1176,7 +1176,7 @@
    "summary": "The SEC issued a request for public comment on exchange-traded funds seeking to invest in innovative asset classes or engage in novel investment strategies. The initiative aims to facilitate market innovation while protecting investors, maintaining fair and efficient markets, and facilitating capital formation. The public comment period will remain open for 60 days following publication in the Federal Register.",
    "business_area": "資本市場與上市監管",
    "risk_level": "中",
-   "deadline": "60 days following publication in the Federal Register",
+   "deadline": null,
    "frameworks": [
     {
      "name": "Advisers Act / Investment Company Act",
@@ -1194,7 +1194,7 @@
    "summary": "The SEC and CFTC have issued a joint request for public comment on potential approaches to further harmonize portfolio margining frameworks across securities, swaps, and futures. The initiative aims to improve risk management efficiency, reduce market fragmentation, and enhance customer protections. The public comment period will remain open for 60 days following its publication in the Federal Register.",
    "business_area": "審慎監管與資本要求",
    "risk_level": "中",
-   "deadline": "60 days following publication in the Federal Register",
+   "deadline": null,
    "frameworks": [],
    "action": "Review the joint request for comment on portfolio margining and prepare feedback on risk management and cross-margining efficiencies before the comment period closes.",
    "status": "todo"
@@ -1220,7 +1220,7 @@
    "summary": "The SEC and CFTC issued a joint request for public comment to update, clarify, and harmonize derivatives product definitions and interpretive issues. The initiative aims to address longstanding ambiguities within Title VII of Dodd-Frank and reflect evolving market structures. The public comment period will remain open for 60 days following publication in the Federal Register.",
    "business_area": "資本市場與上市監管",
    "risk_level": "中",
-   "deadline": "60 days following publication in the Federal Register",
+   "deadline": null,
    "frameworks": [
     {
      "name": "Dodd-Frank",
@@ -1238,7 +1238,7 @@
    "summary": "The SEC and CFTC issued a joint request for public comment to harmonize, modernize, and streamline data reporting requirements for security-based swap and swap markets. The agencies aim to reduce operational complexity, cut red tape, and enhance data quality while maintaining regulatory oversight. The public comment period will remain open for 60 days following publication in the Federal Register.",
    "business_area": "交易申報與市場基礎設施",
    "risk_level": "中",
-   "deadline": "60 days following publication in the Federal Register",
+   "deadline": null,
    "frameworks": [
     {
      "name": "Dodd-Frank",
@@ -1269,7 +1269,7 @@
    "summary": "The Securities and Exchange Commission has proposed amendments to rescind Rules 611 and 610(e) of Regulation NMS. The proposal aims to simplify market structure, reduce costs, and foster competition by removing outdated regulations. A 60-day public comment period will begin following publication in the Federal Register.",
    "business_area": "資本市場與上市監管",
    "risk_level": "中",
-   "deadline": "60 days following Federal Register publication",
+   "deadline": null,
    "frameworks": [
     {
      "name": "Exchange Act",

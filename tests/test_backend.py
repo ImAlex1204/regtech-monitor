@@ -4,7 +4,7 @@
 
 - 使用者手動設定的 status 不會被 pipeline 或 reclassify 覆蓋
 - 舊資料庫會自動補上新欄位
-- LLM 回傳的框架名稱會被收斂回固定清單
+- LLM 回傳的框架名稱會被收斂回固定清單、deadline 只留真實日期
 - 排除清單內的網址（FCA 媒體索引頁）不會進入 pipeline
 - 同一則 FCA 公告換個分類路徑不會被重複收錄；SEC 同標題的定期報告不會被誤判為重複
 """
@@ -69,6 +69,16 @@ class NormalizeFrameworksTest(unittest.TestCase):
     def test_non_list_becomes_empty(self):
         self.assertEqual(llm_client.normalize_frameworks("MAR"), [])
         self.assertEqual(llm_client.normalize_frameworks(None), [])
+
+
+class NormalizeDeadlineTest(unittest.TestCase):
+    def test_keeps_only_real_calendar_dates(self):
+        self.assertEqual(llm_client.normalize_deadline("2027-10-11"), "2027-10-11")
+        self.assertEqual(llm_client.normalize_deadline(" 2027-10-11 "), "2027-10-11")
+        self.assertIsNone(llm_client.normalize_deadline("60 days following publication in the Federal Register"))
+        self.assertIsNone(llm_client.normalize_deadline("2026-02-30"))
+        self.assertIsNone(llm_client.normalize_deadline("20261011"))
+        self.assertIsNone(llm_client.normalize_deadline(None))
 
 
 class MigrationTest(TempDbTestCase):
