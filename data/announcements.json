@@ -254,24 +254,6 @@
    "status": "todo"
   },
   {
-   "url": "https://www.fca.org.uk/news/news-stories/fca-opens-investigation-euro-exchange-securities-uk-ltd",
-   "title": "FCA opens investigation into Euro Exchange Securities UK Ltd",
-   "source": "FCA",
-   "published_date": "2026-09-16T21:13:00+00:00",
-   "summary": "The Financial Conduct Authority (FCA) has opened an investigation into Euro Exchange Securities UK Ltd (EES) regarding potential offences under the Money Laundering Regulations 2017. The investigation focuses on the period between 1 February 2020 and 4 June 2026, examining whether EES failed to properly identify, assess, and mitigate money laundering risks. The regulator notes that no final conclusions have been reached yet regarding whether any breaches actually occurred.",
-   "business_area": "洗錢防制與金融犯罪",
-   "risk_level": "高",
-   "deadline": null,
-   "frameworks": [
-    {
-     "name": "AML (MLRs / BSA)",
-     "reason": "The text explicitly states that EES may have committed offences under the Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017 (the MLRs)."
-    }
-   ],
-   "action": "Review firm-wide money laundering risk assessments, policies, controls, and procedures against the Money Laundering Regulations 2017 to ensure adequate mitigation of customer, geographic, and transaction risks.",
-   "status": "todo"
-  },
-  {
    "url": "https://www.sec.gov/newsroom/press-releases/2026-89-sec-proposes-rescission-shareholder-proposal-rule-reforms-proxy-solicitation-process",
    "title": "SEC Proposes Rescission of Shareholder Proposal Rule and Reforms to Proxy Solicitation Process",
    "source": "SEC",

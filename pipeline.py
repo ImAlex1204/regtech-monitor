@@ -3,6 +3,7 @@ import json
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 from dotenv import load_dotenv
 
@@ -53,9 +54,27 @@ def get_connection() -> sqlite3.Connection:
     return conn
 
 
-def already_fetched(conn: sqlite3.Connection, url: str) -> bool:
-    row = conn.execute("SELECT 1 FROM announcements WHERE url = ?", (url,)).fetchone()
-    return row is not None
+def url_slug(url: str) -> str:
+    """網址路徑的最後一段，例如 .../enforcement-investigations/fca-opens-investigation-x -> fca-opens-investigation-x"""
+    return urlparse(url).path.rstrip("/").rsplit("/", 1)[-1]
+
+
+def find_existing(conn: sqlite3.Connection, url: str, source: str | None) -> str | None:
+    """回傳資料庫裡已經代表這則公告的網址；沒有的話回傳 None。
+
+    除了網址完全相同，同一機構底下「網址最後一段相同」也視為同一則：FCA 會把同一則公告同時放在
+    /news/news-stories/ 和 /news/enforcement-investigations/ 底下。刻意不用標題判斷——SEC 的定期報告
+    （例如每季的 "SEC Publishes Updated Market Statistics..."）標題一字不差，但是不同的新聞稿、編號也不同。
+    """
+    if conn.execute("SELECT 1 FROM announcements WHERE url = ?", (url,)).fetchone():
+        return url
+    slug = url_slug(url)
+    if not slug:
+        return None
+    for (other,) in conn.execute("SELECT url FROM announcements WHERE source = ?", (source,)):
+        if url_slug(other) == slug:
+            return other
+    return None
 
 
 def process_entry(conn: sqlite3.Connection, entry: dict) -> bool:
@@ -103,6 +122,7 @@ def run():
 
     new_count = 0
     skip_existing = 0
+    skip_duplicate = 0
     skip_error = 0
 
     for source in SOURCES:
@@ -111,8 +131,13 @@ def run():
 
         for entry in entries:
             url = entry["link"]
-            if already_fetched(conn, url):
+            existing = find_existing(conn, url, entry.get("source"))
+            if existing == url:
                 skip_existing += 1
+                continue
+            if existing:
+                print(f"[重複] 同一則公告的另一個網址，已存在：{existing}（這次的網址：{url}）")
+                skip_duplicate += 1
                 continue
 
             try:
@@ -129,7 +154,7 @@ def run():
     conn.close()
     print(
         f"\n完成。新增 {new_count} 筆，已存在跳過 {skip_existing} 筆，"
-        f"處理失敗跳過 {skip_error} 筆。"
+        f"重複網址跳過 {skip_duplicate} 筆，處理失敗跳過 {skip_error} 筆。"
     )
 
 

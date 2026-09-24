@@ -6,6 +6,7 @@
 - 舊資料庫會自動補上新欄位
 - LLM 回傳的框架名稱會被收斂回固定清單
 - 排除清單內的網址（FCA 媒體索引頁）不會進入 pipeline
+- 同一則 FCA 公告換個分類路徑不會被重複收錄；SEC 同標題的定期報告不會被誤判為重複
 """
 import json
 import sqlite3
@@ -130,6 +131,50 @@ class StatusPreservationTest(TempDbTestCase):
             reclassify.run(new_fields_only=False)
 
         self.assertEqual(self.query("SELECT risk_level, status FROM announcements"), [("高", "na")])
+
+
+class DuplicateUrlTest(TempDbTestCase):
+    FCA_A = "https://www.fca.org.uk/news/news-stories/fca-opens-investigation-euro-exchange-securities-uk-ltd"
+    FCA_B = "https://www.fca.org.uk/news/enforcement-investigations/fca-opens-investigation-euro-exchange-securities-uk-ltd"
+
+    def insert(self, url, source, title="t"):
+        conn = pipeline.get_connection()
+        conn.execute("INSERT INTO announcements (url, title, source) VALUES (?, ?, ?)", (url, title, source))
+        conn.commit()
+        conn.close()
+
+    def test_same_story_under_another_fca_section_is_a_duplicate(self):
+        self.insert(self.FCA_A, "FCA")
+        conn = pipeline.get_connection()
+        self.assertEqual(pipeline.find_existing(conn, self.FCA_A, "FCA"), self.FCA_A)
+        self.assertEqual(pipeline.find_existing(conn, self.FCA_B, "FCA"), self.FCA_A)
+        self.assertEqual(pipeline.find_existing(conn, self.FCA_B + "/", "FCA"), self.FCA_A)
+        conn.close()
+
+    def test_recurring_sec_release_with_identical_title_is_not_a_duplicate(self):
+        title = "SEC Publishes Updated Market Statistics, Highlighting Increase in IPOs and Proceeds Raised"
+        self.insert("https://www.sec.gov/newsroom/press-releases/2026-61-sec-publishes-updated-market-statistics", "SEC", title)
+        conn = pipeline.get_connection()
+        self.assertIsNone(pipeline.find_existing(
+            conn, "https://www.sec.gov/newsroom/press-releases/2026-93-sec-publishes-updated-market-statistics", "SEC"))
+        conn.close()
+
+    def test_slug_match_is_scoped_to_the_same_regulator(self):
+        self.insert("https://www.fca.org.uk/news/press-releases/joint-statement", "FCA")
+        conn = pipeline.get_connection()
+        self.assertIsNone(pipeline.find_existing(conn, "https://www.sec.gov/newsroom/joint-statement", "SEC"))
+        conn.close()
+
+    def test_run_skips_duplicate_without_calling_the_llm(self):
+        self.insert(self.FCA_A, "FCA")
+        entry = {"link": self.FCA_B, "title": "t", "published": None, "source": "FCA"}
+        fca = {"code": "FCA", "name": "FCA", "rss_url": "x"}
+        with mock.patch.object(pipeline, "SOURCES", [fca]), \
+             mock.patch.object(pipeline, "fetch_feed_entries", return_value=[entry]), \
+             mock.patch.object(pipeline, "summarize_announcement") as llm:
+            pipeline.run()
+        llm.assert_not_called()
+        self.assertEqual(self.query("SELECT url FROM announcements"), [(self.FCA_A,)])
 
 
 class FeedExclusionTest(unittest.TestCase):
