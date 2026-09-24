@@ -1,4 +1,4 @@
-import { parseDeadline } from '../derive'
+import { daysUntil, parseDeadline } from '../derive'
 import { areaLabel, type Lang, type Strings } from '../i18n'
 import type { Announcement } from '../types'
 import { FrameworkBadge, RiskBadge, SourcePill, StatusBadge } from './Badges'
@@ -43,9 +43,12 @@ export default function AnnouncementList({ items, selected, onSelect, lang, s }:
                 <div className="min-w-0">
                   <div className="text-sm font-medium text-ink">{a.title}</div>
                   {a.summary && <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-ink-2">{a.summary}</p>}
-                  {deadline && (
+                  {deadline && (daysUntil(deadline, new Date()) < 0 ? (
+                    // 已過期的期限不再用警示色，避免跟「還要處理」的期限混在一起
+                    <span className="num mt-1.5 inline-block text-[11px] text-ink-3">{s.detailDeadline} {fmtDate(a.deadline)}{s.deadlinePassed}</span>
+                  ) : (
                     <span className="num mt-1.5 inline-block text-[11px] text-risk-mid">⏱ {s.detailDeadline} {fmtDate(a.deadline)}</span>
-                  )}
+                  ))}
                 </div>
                 <div className="flex flex-wrap gap-1 lg:pt-0.5">
                   {a.frameworks.map(t => <FrameworkBadge key={t.name} name={t.name} title={t.reason ?? undefined} />)}

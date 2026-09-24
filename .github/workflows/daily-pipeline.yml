@@ -12,9 +12,9 @@ jobs:
   run-pipeline:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -40,4 +40,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/announcements.db data/announcements.json
           git diff --cached --quiet && echo "No new announcements, nothing to commit." || git commit -m "Auto-update: new FCA/SEC announcements $(date -u +%Y-%m-%d)"
+          # 執行期間若有人 push 了程式碼，先接上最新的 main；兩邊都改到資料庫時會直接失敗，而不是覆蓋掉對方
+          git pull --rebase
           git push

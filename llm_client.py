@@ -121,12 +121,19 @@ def normalize_frameworks(raw) -> list[dict]:
 def _call_gemini(prompt: str, max_retries: int = 3) -> dict | None:
     import time
     from google import genai
-    from google.genai import errors
+    from google.genai import errors, types
 
     client = genai.Client()  # 讀 GEMINI_API_KEY
     for attempt in range(max_retries):
         try:
-            resp = client.models.generate_content(model="gemini-3.5-flash-lite", contents=prompt)
+            resp = client.models.generate_content(
+                model="gemini-3.5-flash-lite",
+                contents=prompt,
+                # 沒有用到 function calling；明確關掉 AFC，log 裡就不會每次執行都出現 AFC 警告
+                config=types.GenerateContentConfig(
+                    automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True),
+                ),
+            )
             return _parse_json(resp.text)
         except errors.ServerError:
             if attempt == max_retries - 1:

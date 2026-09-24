@@ -26,7 +26,7 @@ FCA + SEC RSS  ->  article text  ->  LLM classification  ->  SQLite  ->  JSON ex
    - a 3-sentence **summary in English** (both regulators publish in English, so the summary stays close to the source);
    - a **business area** picked from a fixed 8-category taxonomy;
    - a **risk level** (high/medium/low) against an explicit rubric;
-   - a **deadline**, only if the source gives an actual calendar date — "60 days after publication" is deliberately left as `null` rather than guessed at;
+   - a **deadline**, only if the source gives an actual calendar date — "60 days after publication" is deliberately left as `null` rather than guessed at (and checked again in code before storing, since the model doesn't always comply);
    - zero or more **compliance frameworks** from a fixed list of 10 (Consumer Duty, SM&CR, MAR, MiFID II / UK MiFIR, AML, Securities Act, Exchange Act, Advisers / Investment Company Act, Dodd-Frank, crypto-asset regime), each with a one-sentence reason quoting the text that references it;
    - a one-sentence **suggested action** that has to point at a concrete obligation, party or date in the announcement — not "notify the compliance team to assess impact."
 3. **Store** — persist to SQLite, keyed by URL, tagged with its source regulator, so re-running the pipeline never re-processes (or re-pays for) an announcement it's already seen. The FCA sometimes publishes one story under two sections (`/news-stories/…` and `/enforcement-investigations/…` with the same final path segment), so a URL whose last segment matches a stored one from the same regulator is treated as the same announcement. Titles are deliberately *not* used: the SEC reissues periodic releases (e.g. updated market statistics) under an identical title. A daily GitHub Actions run does this and exports `data/announcements.json` for the dashboard.
@@ -119,7 +119,8 @@ After changing the classification prompt, `python3 reclassify.py` re-runs every 
 ### Tests
 
 ```bash
-python3 -m unittest discover tests    # backend: status is never overwritten, schema migration, name normalization
+python3 -m unittest discover tests    # backend: status is never overwritten, schema migration, framework/deadline
+                                      # normalization, duplicate-URL detection, feed exclusions
 cd web && npm test                    # dashboard: filters, weekly bucketing, deadline parsing
 ```
 

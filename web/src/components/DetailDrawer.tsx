@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { parseDeadline } from '../derive'
+import { daysUntil, parseDeadline } from '../derive'
 import { areaLabel, type Lang, type Strings } from '../i18n'
 import type { Announcement, Mode, Status } from '../types'
 import { FrameworkBadge, RiskBadge, SourcePill, StatusSegmented } from './Badges'
@@ -25,6 +25,7 @@ export default function DetailDrawer({ item, mode, lang, s, onClose, onStatus }:
   }, [item, onClose])
 
   const deadline = item ? parseDeadline(item.deadline) : null
+  const passed = deadline != null && daysUntil(deadline, new Date()) < 0
 
   return (
     <>
@@ -95,7 +96,9 @@ export default function DetailDrawer({ item, mode, lang, s, onClose, onStatus }:
 
               <section className="flex items-baseline gap-2 text-sm">
                 <span className="text-[11px] font-medium uppercase tracking-wider text-ink-3">{s.detailDeadline}</span>
-                <span className={`num ${deadline ? 'text-risk-mid' : 'text-ink-3'}`}>{deadline ? fmtDate(item.deadline) : s.detailNone}</span>
+                <span className={`num ${deadline && !passed ? 'text-risk-mid' : 'text-ink-3'}`}>
+                  {deadline ? fmtDate(item.deadline) : s.detailNone}{passed && s.deadlinePassed}
+                </span>
               </section>
             </div>
 
