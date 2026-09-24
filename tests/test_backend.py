@@ -5,6 +5,7 @@
 - 使用者手動設定的 status 不會被 pipeline 或 reclassify 覆蓋
 - 舊資料庫會自動補上新欄位
 - LLM 回傳的框架名稱會被收斂回固定清單
+- 排除清單內的網址（FCA 媒體索引頁）不會進入 pipeline
 """
 import json
 import sqlite3
@@ -17,6 +18,7 @@ from unittest import mock
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import export_json  # noqa: E402
+import fetch  # noqa: E402
 import llm_client  # noqa: E402
 import pipeline  # noqa: E402
 import reclassify  # noqa: E402
@@ -128,6 +130,17 @@ class StatusPreservationTest(TempDbTestCase):
             reclassify.run(new_fields_only=False)
 
         self.assertEqual(self.query("SELECT risk_level, status FROM announcements"), [("高", "na")])
+
+
+class FeedExclusionTest(unittest.TestCase):
+    def test_excluded_urls_never_reach_the_pipeline(self):
+        feed = mock.Mock(entries=[
+            {"title": "Video", "link": "https://www.fca.org.uk/news/news-stories/video", "published": None},
+            {"title": "Real", "link": "https://www.fca.org.uk/news/press-releases/real", "published": None},
+        ])
+        fca = next(s for s in fetch.SOURCES if s["code"] == "FCA")
+        with mock.patch.object(fetch.feedparser, "parse", return_value=feed):
+            self.assertEqual([e["title"] for e in fetch.fetch_feed_entries(fca)], ["Real"])
 
 
 class ExportTest(TempDbTestCase):

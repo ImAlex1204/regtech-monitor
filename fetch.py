@@ -15,6 +15,13 @@ SOURCES = [
         # FCA 用自訂日期格式（非 RFC822/ISO），feedparser 認不出來、published_parsed 會是 None，
         # 需要手動解析當備援。時區精確度不重要（只拿來做週彙總），簡化當成 UTC 處理。
         "date_format": "%A, %B %d, %Y - %H:%M",
+        # FCA 的 RSS 會混入幾個媒體索引頁（不是公告），頁面上沒有 <p> 正文，每次都被 pipeline 跳過、
+        # 隔天又重抓一次。直接在抓 feed 時排除，連 HTTP 請求都省掉。
+        "exclude_urls": {
+            "https://www.fca.org.uk/news/news-stories/video",
+            "https://www.fca.org.uk/news/news-stories/infographics",
+            "https://www.fca.org.uk/news/news-stories/images",
+        },
     },
     {"code": "SEC", "name": "Securities and Exchange Commission (US)", "rss_url": "https://www.sec.gov/news/pressreleases.rss"},
 ]
@@ -30,8 +37,11 @@ def fetch_feed_entries(source: dict) -> list[dict]:
     存成同一格式後，下游（dashboard 週彙總）才不用管是哪個來源。
     """
     feed = feedparser.parse(source["rss_url"])
+    exclude = source.get("exclude_urls", set())
     entries = []
     for e in feed.entries:
+        if e.get("link") in exclude:
+            continue
         published_parsed = e.get("published_parsed")
         if published_parsed:
             published_iso = datetime.fromtimestamp(timegm(published_parsed), tz=timezone.utc).isoformat()
