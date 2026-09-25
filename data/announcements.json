@@ -1,6 +1,32 @@
 {
- "last_fetched_at": "2026-09-24T12:35:00.922304+00:00",
+ "last_fetched_at": "2026-09-25T12:35:55.117470+00:00",
  "announcements": [
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/iti-capital-ltd-enters-special-administration",
+   "title": "ITI Capital Ltd enters special administration",
+   "source": "FCA",
+   "published_date": "2026-09-25T13:23:00+00:00",
+   "summary": "ITI Capital Ltd entered special administration on 25 September 2026, with Duncan Perring and David Soden of Teneo Financial Advisory Ltd appointed as special administrators. The firm previously agreed to stop most regulated activities and halt accepting new client money or custody assets. Special administrators will assess client money and assets and write to clients within 8 weeks regarding return plans and claims.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": "2026-11-20",
+   "frameworks": [],
+   "action": "Clients of ITI Capital Ltd must review communications from the special administrators expected within 8 weeks to submit claims and understand the asset return process.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/twenty-four-cfd-firms-closing-crackdown-misuse-uk-authorisation",
+   "title": "Twenty-four CFD firms closing in crackdown on misuse of UK authorisation",
+   "source": "FCA",
+   "published_date": "2026-09-25T10:24:00+00:00",
+   "summary": "Twenty-one CFD firms have closed and three are cancelling permissions following an FCA crackdown on misusing UK authorisation. The regulator identified firms carrying out little UK business but using their status to make overseas affiliates appear trustworthy. The FCA imposed various restrictions, including trading limitations and enforcement investigations, to prevent consumer deception.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review firm authorisation usage and international operations to ensure UK-regulated status is not leveraged to mislead consumers about overseas protections.",
+   "status": "todo"
+  },
   {
    "url": "https://www.sec.gov/newsroom/press-releases/2026-93-sec-publishes-updated-market-statistics-highlighting-increase-ipos-proceeds-raised",
    "title": "SEC Publishes Updated Market Statistics, Highlighting Increase in IPOs and Proceeds Raised",
