@@ -1,6 +1,68 @@
 {
- "last_fetched_at": "2026-09-25T12:35:55.117470+00:00",
+ "last_fetched_at": "2026-09-29T13:48:33.724812+00:00",
  "announcements": [
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-94-sec-charges-registered-investment-adviser-zoe-financial-failure-disclose-conflict-interest",
+   "title": "SEC Charges Registered Investment Adviser Zoe Financial for Failure to Disclose Conflict of Interest",
+   "source": "SEC",
+   "published_date": "2026-09-28T17:46:30+00:00",
+   "summary": "The SEC announced settled charges against registered investment adviser Zoe Financial Inc. for failing to fully and fairly disclose material facts regarding conflicts of interest related to its referral services and Zoe Wealth sub-advisory offerings. According to the SEC order, Zoe Financial did not adequately disclose the resulting conflict of interest in its Form ADV Brochure until December 2024 and inaccurately described conflict mitigation measures. The firm agreed to a cease-and-desist order, a censure, and a $450,000 civil monetary penalty for willfully violating Section 206(2) of the Investment Advisers Act of 1940.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The order finds that Zoe Financial willfully violated Section 206(2) of the Investment Advisers Act of 1940."
+    }
+   ],
+   "action": "Review Form ADV disclosures and referral service conflict mitigation practices against the SEC's findings under Section 206(2) of the Advisers Act of 1940.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/fca-secures-bankruptcy-order-against-arthur-temlett",
+   "title": "FCA secures bankruptcy order against Arthur Temlett",
+   "source": "FCA",
+   "published_date": "2026-09-28T14:29:00+00:00",
+   "summary": "The FCA secured a bankruptcy order against Arthur Temlett, trading as Abacus Insurance Consultants, following an investigation into alleged embezzlement and unauthorized practices. An appointed trustee is currently assessing his financial affairs to distribute recovered funds to affected creditors and consumers. Customers are advised to verify their insurance coverage and contact the trustee or the Financial Services Compensation Scheme regarding claims.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-secures-money-back-victims-crypto-fraud",
+   "title": "FCA secures money back for victims of crypto fraud",
+   "source": "FCA",
+   "published_date": "2026-09-28T14:08:00+00:00",
+   "summary": "The FCA secured confiscation orders at Southwark Crown Court requiring Raymondip Bedi and Patrick Mavanga to pay over £850,000 to compensate victims of a £1.5m crypto investment fraud scheme operated between 2017 and 2019. The fraudsters previously received prison sentences in July 2025 following an FCA prosecution for cold-calling investors and selling fake cryptoasset opportunities. The FCA has identified and contacted the affected investors to ensure the recovered funds are returned.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The text explicitly involves a fraudulent scheme persuading consumers to invest in fake cryptoasset opportunities through CCX Capital and Astaria Group LLP."
+    }
+   ],
+   "action": "Monitor FCA enforcement outcomes regarding crypto investment fraud and ensure robust controls against unauthorized cold-calling and fraudulent crypto asset offerings.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/imfp-appointed-representative-ima-enter-administration",
+   "title": "InterestMe Financial Planning Limited (IMFP) and the appointed representative InterestMe Advisers Limited (IMA) enter administration",
+   "source": "FCA",
+   "published_date": "2026-09-28T13:21:00+00:00",
+   "summary": "InterestMe Financial Planning Limited and its appointed representative InterestMe Advisers Limited entered administration on 24 September 2026. Robert Goodhew and Geoff Bouchier of Kroll Advisory Limited have been appointed as joint administrators to manage the firms' affairs. Customers are advised to contact the joint administrators regarding their accounts, ongoing complaints, or asset management options.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
   {
    "url": "https://www.fca.org.uk/news/news-stories/iti-capital-ltd-enters-special-administration",
    "title": "ITI Capital Ltd enters special administration",
