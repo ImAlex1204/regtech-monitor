@@ -1,6 +1,46 @@
 {
- "last_fetched_at": "2026-09-29T13:48:33.724812+00:00",
+ "last_fetched_at": "2026-09-30T13:22:39.545859+00:00",
  "announcements": [
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/fca-opens-gateway-regulated-crypto",
+   "title": "FCA opens the gateway to regulated crypto",
+   "source": "FCA",
+   "published_date": "2026-09-30T11:00:00+00:00",
+   "summary": "The FCA has opened its authorisation gateway for crypto firms operating in the UK, bringing them into full regulation under clear standards for consumer protection, market integrity, and financial resilience. Crypto firms intending to continue operations must submit their applications by 28 February 2027 ahead of the regime taking effect on 25 October 2027. Applicants must proactively demonstrate compliance with FCA requirements to secure authorisation and operate legally in the UK market.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": "2027-02-28",
+   "frameworks": [
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The announcement states that crypto firms must apply for authorisation ahead of the UK's new crypto regime coming into force."
+    }
+   ],
+   "action": "Crypto firms operating in the UK must submit their authorisation applications to the FCA by 2027-02-28 to prepare for the new crypto regime coming into force on 25 October 2027.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-95-sec-charges-multiple-entities-fraud-schemes-totaling-least-15-million-used-whatsapp-other-platforms",
+   "title": "SEC Charges Multiple Entities in Fraud Schemes Totaling at Least $15 Million That Used WhatsApp and Other Platforms to Lure Investors",
+   "source": "SEC",
+   "published_date": "2026-09-29T13:55:53+00:00",
+   "summary": "The SEC charged Cryptoaiml Ltd. and TSAI Pro Ltd. in federal court for orchestrating investment confidence scams that defrauded hundreds of retail investors of at least $15 million. The entities used platforms like WhatsApp to build trust, falsely claimed to be SEC-regulated and certified, and misappropriated investor funds through fake trading platforms and AI bot programs. The SEC encourages the public to report such schemes and verify investment backgrounds using Investor.gov.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The text states the defendants posted falsified Form D filings on their websites to deceive investors regarding SEC registration under the relevant federal securities laws."
+    },
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The text details fraudulent investment schemes where perpetrators manipulated victims into transferring crypto assets to fake trading platforms and AI bot programs."
+    }
+   ],
+   "action": "Review client onboarding and marketing verification controls to prevent fraudulent entities from misrepresenting SEC registration and Form D filings on digital platforms.",
+   "status": "todo"
+  },
   {
    "url": "https://www.sec.gov/newsroom/press-releases/2026-94-sec-charges-registered-investment-adviser-zoe-financial-failure-disclose-conflict-interest",
    "title": "SEC Charges Registered Investment Adviser Zoe Financial for Failure to Disclose Conflict of Interest",
