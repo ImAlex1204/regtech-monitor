@@ -1,6 +1,81 @@
 {
- "last_fetched_at": "2026-09-30T13:22:39.545859+00:00",
+ "last_fetched_at": "2026-10-01T14:16:29.473758+00:00",
  "announcements": [
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-98-sec-charges-meyer-global-management-its-ceo-defrauding-retail-investors-private-funds-held-interests",
+   "title": "SEC Charges Meyer Global Management and Its CEO With Defrauding Retail Investors in Private Funds That Held Interests in SpaceX and Other Pre-IPO Securities",
+   "source": "SEC",
+   "published_date": "2026-09-30T18:30:01+00:00",
+   "summary": "The SEC charged private fund adviser Meyer Global Management LLC and its CEO with defrauding retail investors in funds holding pre-IPO securities like SpaceX. The defendants allegedly breached fiduciary duties by misusing client assets for personal expenses, inflating account values, and forcing disadvantageous releases. The enforcement action was filed in the U.S. District Court for the Southern District of New York for violations of antifraud provisions under the Advisers Act of 1940.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The complaint charges the defendants with violating antifraud provisions of the Advisers Act of 1940."
+    }
+   ],
+   "action": "Review private fund valuation, asset custody, and capital call management controls against the Advisers Act antifraud provisions highlighted in the SEC complaint.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/fca-announces-new-board-appointments-lea-paterson-matthew-tobin-sarah-pritchard",
+   "title": "FCA announces new Board appointments",
+   "source": "FCA",
+   "published_date": "2026-09-30T17:17:00+00:00",
+   "summary": "The FCA announced three new appointments to its Board to bring additional experience in public policy, financial services, regulation, and corporate leadership. Lea Paterson CBE and Matthew Tobin have been appointed by the Treasury as non-executive directors. Additionally, deputy chief executive Sarah Pritchard has joined the Board as an executive member, with all three roles taking effect on 1 October 2026.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "低",
+   "deadline": "2026-10-01",
+   "frameworks": [],
+   "action": "No action required; for awareness only regarding FCA board composition updates effective 2026-10-01.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-97-sec-charges-two-individuals-orchestrating-fraud-scheme-targeted-veterans",
+   "title": "SEC Charges Two Individuals With Orchestrating Fraud Scheme That Targeted Veterans",
+   "source": "SEC",
+   "published_date": "2026-09-30T16:42:15+00:00",
+   "summary": "The SEC announced charges against Christopher Kenji Dinelli and Jacob David Frankel for orchestrating a fraud scheme targeting veterans and raising over $8.7 million through Beyond Alpha Ventures LLC and Beyond Equity LLC. The defendants allegedly made material misrepresentations about fund performance and pre-IPO investments while misappropriating investor funds and incurring massive trading losses. The SEC complaint charges the defendants with violating antifraud provisions under the Securities Act of 1933, the Securities Exchange Act of 1934, and the Investment Advisers Act of 1940.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Securities Act",
+     "reason": "The SEC's complaint charges Dinelli and Frankel with violating the antifraud provisions of the Securities Act of 1933."
+    },
+    {
+     "name": "Exchange Act",
+     "reason": "The SEC's complaint charges Dinelli and Frankel with violating the antifraud provisions of the Securities Exchange Act of 1934."
+    },
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The SEC's complaint charges Frankel with violating the antifraud provisions of the Investment Advisers Act of 1940."
+    }
+   ],
+   "action": "Review marketing materials, pre-IPO investment disclosures, and advisory client communication controls to ensure compliance with the antifraud provisions of the Securities Act, Exchange Act, and Advisers Act.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-96-sec-proposes-amendments-expand-responsible-retailization-private-markets",
+   "title": "SEC Proposes Amendments to Expand Responsible Retailization of Private Markets",
+   "source": "SEC",
+   "published_date": "2026-09-30T15:45:00+00:00",
+   "summary": "The SEC proposed rule amendments on September 30, 2026, to expand retail investor access to private markets and regulated fund structures. The proposals explore new ways for individuals to qualify as accredited investors through professional credentials, certifications, or exams. Additionally, the Commission is seeking public comment on these proposed amendments for 60 days following publication in the Federal Register.",
+   "business_area": "審慎監管與資本要求",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text relates to proposed amendments impacting investment advisers, regulated funds, and the accreditation standards governed under the US Investment Advisers Act."
+    }
+   ],
+   "action": "Monitor the Federal Register for the publication of the SEC's proposed amendments and submit public comments on the expanded accredited investor qualifications within the 60-day comment window.",
+   "status": "todo"
+  },
   {
    "url": "https://www.fca.org.uk/news/press-releases/fca-opens-gateway-regulated-crypto",
    "title": "FCA opens the gateway to regulated crypto",
