@@ -1,6 +1,59 @@
 {
- "last_fetched_at": "2026-10-01T14:16:29.473758+00:00",
+ "last_fetched_at": "2026-10-02T13:39:06.762159+00:00",
  "announcements": [
+  {
+   "url": "https://www.fca.org.uk/news/news-stories/firms-confidence-satisfaction-and-trust-fca-rise",
+   "title": "Firms’ confidence, satisfaction and trust in the FCA rise",
+   "source": "FCA",
+   "published_date": "2026-10-02T11:58:00+00:00",
+   "summary": "The FCA and Practitioner Panel survey shows rising levels of firm satisfaction, confidence, and trust in the regulator. Furthermore, 88% of surveyed firms report a strong understanding of expectations regarding the Consumer Duty. The FCA is also taking steps to simplify reporting and reduce regulatory burdens for firms.",
+   "business_area": "監管政策與合規流程",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Consumer Duty",
+     "reason": "The text states that 88% of firms say they understand what the FCA expects on supporting consumers and embedding the Consumer Duty."
+    }
+   ],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal",
+   "title": "SEC Proposal Would Address How Investment Advisers and Funds Can Custody Crypto Assets Under the Federal Securities Laws",
+   "source": "SEC",
+   "published_date": "2026-10-01T16:16:07+00:00",
+   "summary": "The SEC proposed new rules and amendments to create a tailored custody framework for crypto assets managed by registered investment advisers and regulated funds. The proposal aims to modernize custody rules, remove regulatory barriers, and address current industry practices regarding financial statement audits and custodial services. The public comment period remains open for 60 days following the publication of the proposing release in the Federal Register.",
+   "business_area": "审慎监管与资本要求",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text states that the proposed rules and amendments are 'under the Investment Advisers Act of 1940 and the Investment Company Act of 1940' to update custody requirements for registered investment advisers and regulated funds."
+    },
+    {
+     "name": "Crypto-asset regime",
+     "reason": "The text explicitly introduces a proposal to 'provide a tailored framework for the custody of crypto assets' and modernize regulations for the crypto-asset market."
+    }
+   ],
+   "action": "Review the proposed SEC custody rules under the Investment Advisers Act of 1940 and the Investment Company Act of 1940 and prepare comments during the 60-day public comment period following Federal Register publication.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-99-secs-division-examinations-announces-new-exam-handbook",
+   "title": "SEC’s Division of Examinations Announces New Exam Handbook",
+   "source": "SEC",
+   "published_date": "2026-10-01T15:03:35+00:00",
+   "summary": "The SEC's Division of Examinations published a new handbook titled 'The SEC Exam Handbook: A Practical Guide on Process and Engagement' on October 1, 2026. This handbook replaces the previous examination brochure to provide registrants with enhanced insights, consistency, and a roadmap of the examination process. It aims to improve industry practices, monitor risk, prevent fraud, and foster a collaborative approach between examiners and regulated entities.",
+   "business_area": "監管政策與合規流程",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review the new SEC Exam Handbook to understand the updated examination process and prepare compliance programs accordingly.",
+   "status": "todo"
+  },
   {
    "url": "https://www.sec.gov/newsroom/press-releases/2026-98-sec-charges-meyer-global-management-its-ceo-defrauding-retail-investors-private-funds-held-interests",
    "title": "SEC Charges Meyer Global Management and Its CEO With Defrauding Retail Investors in Private Funds That Held Interests in SpaceX and Other Pre-IPO Securities",
