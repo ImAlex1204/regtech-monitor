@@ -1,6 +1,32 @@
 {
- "last_fetched_at": "2026-10-02T13:39:06.762159+00:00",
+ "last_fetched_at": "2026-10-05T15:36:54.112890+00:00",
  "announcements": [
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-101-sec-coordinates-global-financial-regulators-raise-fraud-awareness-during-world-investor-week",
+   "title": "SEC Coordinates with Global Financial Regulators to Raise Fraud Awareness During World Investor Week",
+   "source": "SEC",
+   "published_date": "2026-10-05T12:47:36+00:00",
+   "summary": "The SEC and domestic and global regulators issued a joint investor bulletin during World Investor Week to promote fraud awareness and investor resilience. The bulletin urges investors to be vigilant against rising relationship investment and impersonation scams. Regulators highlighted educational resources on Investor.gov to help individuals protect themselves against investment fraud.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/speeches/reforming-uk-capital-markets-ensure-they-work-well-our-economy",
+   "title": "Reforming UK capital markets to ensure they work well for our economy",
+   "source": "FCA",
+   "published_date": "2026-10-05T11:19:00+00:00",
+   "summary": "Jon Relleen, director of infrastructure and exchanges at the FCA, delivered a speech detailing the progress and future direction of UK capital markets reform. He highlighted completed milestones across primary and secondary markets, post-trade arrangements, and asset management while emphasizing ongoing adaptation to emerging technologies like tokenization and AI. Furthermore, he noted that future regulatory efforts will focus on rebalancing risk, maintaining high standards, and enhancing international competitiveness.",
+   "business_area": "資本市場與上市監管",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review ongoing and planned UK wholesale market reforms outlined in the speech to assess potential impacts on capital-raising, trading, and post-trade operations for awareness.",
+   "status": "todo"
+  },
   {
    "url": "https://www.fca.org.uk/news/news-stories/firms-confidence-satisfaction-and-trust-fca-rise",
    "title": "Firms’ confidence, satisfaction and trust in the FCA rise",
