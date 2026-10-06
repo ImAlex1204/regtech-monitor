@@ -1,6 +1,19 @@
 {
- "last_fetched_at": "2026-10-05T15:36:54.112890+00:00",
+ "last_fetched_at": "2026-10-06T13:58:57.175801+00:00",
  "announcements": [
+  {
+   "url": "https://www.fca.org.uk/news/blogs/looking-how-we-interact-whistleblowers",
+   "title": "Looking at how we interact with whistleblowers",
+   "source": "FCA",
+   "published_date": "2026-10-06T10:50:00+00:00",
+   "summary": "The regulator reflects on its engagement with whistleblowers following the passing of Simon Andriesz, noting a 22 percent increase in whistleblowing reports last year. It highlights ongoing efforts to improve transparency by providing feedback on closed reports and handling vulnerable individuals with empathy. Additionally, newly appointed board member Lea Paterson will review the regulator's interactions with Mr Andriesz to identify areas for improvement.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "低",
+   "deadline": null,
+   "frameworks": [],
+   "action": "No action required; for awareness only.",
+   "status": "todo"
+  },
   {
    "url": "https://www.sec.gov/newsroom/press-releases/2026-101-sec-coordinates-global-financial-regulators-raise-fraud-awareness-during-world-investor-week",
    "title": "SEC Coordinates with Global Financial Regulators to Raise Fraud Awareness During World Investor Week",
