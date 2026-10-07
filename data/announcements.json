@@ -1,6 +1,42 @@
 {
- "last_fetched_at": "2026-10-06T13:58:57.175801+00:00",
+ "last_fetched_at": "2026-10-07T14:15:35.017756+00:00",
  "announcements": [
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-103-sec-seeks-final-judgment-against-former-western-asset-co-cio-ken-leech-cherry-picking-case",
+   "title": "SEC Seeks Final Judgment Against Former Western Asset Co-CIO Ken Leech in Cherry Picking Case",
+   "source": "SEC",
+   "published_date": "2026-10-06T20:30:24+00:00",
+   "summary": "The SEC moved for a final judgment by consent against former Western Asset Co-CIO Ken Leech in a multi-year cherry-picking scheme involving hundreds of millions in skewed trade allocations. Leech agreed to a $3 million penalty, an officer-and-director bar, and permanent injunctions without admitting the allegations. This follows a prior $100 million settlement with Western Asset and Leech's guilty plea to obstruction of justice charges in June 2026.",
+   "business_area": "洗錢防制與金融犯罪",
+   "risk_level": "高",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text states Leech was the co-chief investment officer of registered investment adviser Western Asset Management Company LLC and breached fiduciary obligations."
+    }
+   ],
+   "action": "Review trade allocation policies and supervisory controls for registered investment advisers to prevent cherry-picking practices referenced in the SEC enforcement action against Ken Leech.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-102-sec-host-virtual-national-compliance-outreach-seminar-investment-companies-investment-advisers",
+   "title": "SEC to Host Virtual National Compliance Outreach Seminar for Investment Companies and Investment Advisers",
+   "source": "SEC",
+   "published_date": "2026-10-06T14:37:55+00:00",
+   "summary": "The SEC's Compliance Outreach Program announced a virtual national seminar scheduled for November 19, 2026, targeted at investment companies and investment advisers. The event aims to assist chief compliance officers and senior personnel in enhancing compliance programs to protect investors. Panel discussions will be featured, and advance registration is not required to access the live webcast.",
+   "business_area": "監管政策與合規流程",
+   "risk_level": "中",
+   "deadline": "2026-11-19",
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text states the SEC will host a virtual national seminar for investment companies and investment advisers to help chief compliance officers enhance their compliance programs."
+    }
+   ],
+   "action": "Chief compliance officers and senior personnel at investment companies and investment advisers should mark their calendars to attend the virtual national seminar on 2026-11-19 and review the agenda for panel discussions.",
+   "status": "todo"
+  },
   {
    "url": "https://www.fca.org.uk/news/blogs/looking-how-we-interact-whistleblowers",
    "title": "Looking at how we interact with whistleblowers",
