@@ -1,6 +1,32 @@
 {
- "last_fetched_at": "2026-10-07T14:15:35.017756+00:00",
+ "last_fetched_at": "2026-10-08T14:24:35.940306+00:00",
  "announcements": [
+  {
+   "url": "https://www.fca.org.uk/news/blogs/strong-compliance-functions-support-trusted-corporate-finance-markets",
+   "title": "Strong compliance functions support trusted corporate finance markets",
+   "source": "FCA",
+   "published_date": "2026-10-08T13:00:00+00:00",
+   "summary": "The regulator published findings from a survey of 411 corporate finance firms evaluating compliance resources and activities. The survey revealed widespread use of dual-hatted compliance staff and third-party support, highlighting potential conflicts of interest and governance gaps. The regulator will engage further with selected firms and expects all firms to use the findings to improve compliance arrangements.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Corporate finance firms should review their compliance resources, conflict management, and governance practices against the survey findings to identify and address operational gaps.",
+   "status": "todo"
+  },
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/new-rules-make-long-term-investment-funds-clearer",
+   "title": "New rules to make long-term investment funds clearer",
+   "source": "FCA",
+   "published_date": "2026-10-08T12:03:00+00:00",
+   "summary": "The FCA has established new rules for asset managers handling long-term investments, such as property funds, requiring a 90-day notice period for investor withdrawals. This measure aims to prevent liquidity-driven suspensions and asset fire sales during market stress by aligning the UK with international liquidity standards. Existing funds are granted a two-year compliance period and must provide investors with at least one year's notice.",
+   "business_area": "消費者保護與產品行銷",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [],
+   "action": "Review open-ended long-term investment fund structures and prepare liquidity management procedures to comply with the new 90-day notice period within the two-year transition window.",
+   "status": "todo"
+  },
   {
    "url": "https://www.sec.gov/newsroom/press-releases/2026-103-sec-seeks-final-judgment-against-former-western-asset-co-cio-ken-leech-cherry-picking-case",
    "title": "SEC Seeks Final Judgment Against Former Western Asset Co-CIO Ken Leech in Cherry Picking Case",
