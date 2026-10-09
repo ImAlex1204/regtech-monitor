@@ -1,6 +1,19 @@
 {
- "last_fetched_at": "2026-10-08T14:24:35.940306+00:00",
+ "last_fetched_at": "2026-10-09T14:10:21.854581+00:00",
  "announcements": [
+  {
+   "url": "https://www.fca.org.uk/news/press-releases/liam-coleman-appointed-chair-financial-ombudsman-service",
+   "title": "Liam Coleman appointed as chair of the Financial Ombudsman Service",
+   "source": "FCA",
+   "published_date": "2026-10-09T12:06:00+00:00",
+   "summary": "The FCA Board, with Treasury approval, has appointed Liam Coleman as the permanent chair of the Financial Ombudsman Service. He will begin his three-year term on 10 October 2026, having served as interim chair for the previous year. Mr. Coleman brings extensive experience from financial services, regulatory, and public sector organizations to the role.",
+   "business_area": "公司治理與高階人員問責",
+   "risk_level": "低",
+   "deadline": "2026-10-10",
+   "frameworks": [],
+   "action": "No action required; for awareness only regarding the leadership appointment.",
+   "status": "todo"
+  },
   {
    "url": "https://www.fca.org.uk/news/blogs/strong-compliance-functions-support-trusted-corporate-finance-markets",
    "title": "Strong compliance functions support trusted corporate finance markets",
