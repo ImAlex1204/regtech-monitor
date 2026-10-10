@@ -1,6 +1,24 @@
 {
- "last_fetched_at": "2026-10-09T14:10:21.854581+00:00",
+ "last_fetched_at": "2026-10-10T13:19:16.171352+00:00",
  "announcements": [
+  {
+   "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+   "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+   "source": "SEC",
+   "published_date": "2026-10-09T14:59:00+00:00",
+   "summary": "The SEC proposed amendments to Rule 17a-7 under the Investment Company Act of 1940 to modernize and expand the cross-trading rule for registered funds and affiliates. The changes would restore the ability to cross trade most fixed-income securities and update pricing and oversight conditions. Additionally, the proposal introduces aggregated reporting requirements and will have a 60-day public comment period following Federal Register publication.",
+   "business_area": "审慎监管与资本要求",
+   "risk_level": "中",
+   "deadline": null,
+   "frameworks": [
+    {
+     "name": "Advisers Act / Investment Company Act",
+     "reason": "The text explicitly proposes amendments to Rule 17a-7 under the Investment Company Act of 1940."
+    }
+   ],
+   "action": "Review the proposed amendments to Rule 17a-7 under the Investment Company Act of 1940 and prepare feedback for the 60-day public comment period.",
+   "status": "todo"
+  },
   {
    "url": "https://www.fca.org.uk/news/press-releases/liam-coleman-appointed-chair-financial-ombudsman-service",
    "title": "Liam Coleman appointed as chair of the Financial Ombudsman Service",
